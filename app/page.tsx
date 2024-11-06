@@ -7,7 +7,6 @@ export default function Home() {
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none overflow-hidden">
         {/* Floating circles */}
         <div className="absolute top-10 left-1/4 w-48 h-48 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-br from-blue-900 to-black-500 rounded-full filter blur-2xl animate-pulse delay-2000"></div>
       </div>
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start z-10 w-full">
