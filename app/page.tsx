@@ -11,7 +11,7 @@ export default function Home() {
       </div>
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start z-10 w-full">
-        <div className="flex flex-col items-center gap-4 sm:gap-5 w-full">
+        <div className="flex flex-col items-center gap-4 sm:gap-5 w-full justify-center">
           <Image
             priority
             src="/Clashware.png"
@@ -26,7 +26,7 @@ export default function Home() {
               <div className=" absolute inset-0 rounded-xl sm:rounded-3xl bg-gradient-to-r from-white/10 to-transparent animate-light-reflection"></div>
             </div>
           </div>
-          <h2 className="text-xl sm:text-4xl text-muted-foreground">
+          <h2 className="text-xl sm:text-4xl text-muted-foreground text-center">
             Building secure and reliable software
           </h2>
           <p className="text-md sm:text-2xl text-muted-foreground text-black-200">
