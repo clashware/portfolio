@@ -26,7 +26,7 @@ export default function Home() {
             </div>
           </div>
           <h2 className="text-xl sm:text-4xl text-muted-foreground text-center">
-            Building secure and reliable software
+            Be ready to clash!
           </h2>
           <p className="text-md sm:text-2xl text-muted-foreground text-black-200">
             Coming Soon
