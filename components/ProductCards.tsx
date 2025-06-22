@@ -27,7 +27,7 @@ export default function ProductCards() {
                 </div>
                 <div className="p-6">
                     <h4 className="text-2xl font-bold text-white">Metacube</h4>
-                    <p className="text-gray-300 mt-2">The future of gaming is here. Explore user-generated worlds and create your own adventures.</p>
+                    <p className="text-gray-300 mt-2">The future of gaming is here! Dive into massively multiplayer events and compete against thousands of players to find precious prizes hidden across a giant map!</p>
                 </div>
             </motion.a>
 
@@ -52,7 +52,7 @@ export default function ProductCards() {
                 </div>
                 <div className="p-6">
                     <h4 className="text-2xl font-bold text-white">Lengthen.ai</h4>
-                    <p className="text-gray-300 mt-2">Supercharge your content with AI. Generate high-quality text for any purpose.</p>
+                    <p className="text-gray-300 mt-2">Generate anything! Break the time barrier and create long-form AI videos, unlike anything you've seen before!</p>
                 </div>
             </motion.a>
         </div>
