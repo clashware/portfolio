@@ -1,15 +1,16 @@
 import Image from "next/image";
+import ProductCards from "../components/ProductCards"; // Import the new component
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-0 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-br from-purple-900 to-black-500 relative overflow-hidden">
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-0 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-br from-purple-900 to-black relative overflow-hidden">
       {/* Background geometric elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none overflow-hidden">
         {/* Floating circles */}
         <div className="absolute top-10 left-1/4 w-48 h-48 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full filter blur-3xl animate-pulse"></div>
       </div>
 
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start z-10 w-full">
+      <header className="flex flex-col gap-8 row-start-1 items-center sm:items-start z-10 w-full">
         <div className="flex flex-col items-center gap-4 sm:gap-5 w-full justify-center">
           <Image
             priority
@@ -17,21 +18,23 @@ export default function Home() {
             alt="Clashware"
             width={200}
             height={200}
-            className="filter  animate-wave mb-4"
+            className="filter animate-wave mb-4"
           />
           <div className="relative w-max-content overflow-hidden rounded-xl sm:rounded-2xl">
-            <div className="drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] p-2 sm:p-3 relative rounded-xl sm:rounded-2xl top-0 left-0 w-full h-full bg-[conic-gradient(at_top,_#2c024a00,_#f3624205)]  bg-[length:200%_200%] bg-left  flex items-center justify-center">
-              <h1 className=" text-5xl sm:text-8xl font-bold">Clashware</h1>
-              <div className=" absolute inset-0 rounded-xl sm:rounded-3xl bg-gradient-to-r from-white/10 to-transparent animate-light-reflection"></div>
+            <div className="drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] p-2 sm:p-3 relative rounded-xl sm:rounded-2xl top-0 left-0 w-full h-full bg-[conic-gradient(at_top,_#2c024a00,_#f3624205)] bg-[length:200%_200%] bg-left flex items-center justify-center">
+              <h1 className="text-5xl sm:text-8xl font-bold text-white">Clashware</h1>
+              <div className="absolute inset-0 rounded-xl sm:rounded-3xl bg-gradient-to-r from-white/10 to-transparent animate-light-reflection"></div>
             </div>
           </div>
-          <h2 className="text-xl sm:text-4xl text-muted-foreground text-center">
+          <h2 className="text-xl sm:text-4xl text-gray-300 text-center">
             Be ready to clash!
           </h2>
-          <p className="text-md sm:text-2xl text-muted-foreground text-black-200">
-            Coming Soon
-          </p>
         </div>
+      </header>
+
+      <main className="row-start-2 z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h3 className="text-4xl font-bold text-center text-white mb-12">Our Products</h3>
+        <ProductCards />
       </main>
 
       {/* Animated swords */}

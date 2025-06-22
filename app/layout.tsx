@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "../components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/Clashware.png",
   },
-  authors: { name: "Clashware", url: "https://clashware.com" },
+  authors: { name: "Clashware Sàrl", url: "https://clashware.com" },
   robots: "index, follow",
   openGraph: {
     title: "Clashware",
@@ -40,9 +41,10 @@ export default function RootLayout({
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-background`}
       >
-        {children}
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
