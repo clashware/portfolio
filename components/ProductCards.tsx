@@ -31,9 +31,9 @@ export default function ProductCards() {
                 </div>
             </motion.a>
 
-            {/* lengthen.ai Card */}
+            {/* bonega.ai Card */}
             <motion.a
-                href="https://lengthen.ai"
+                href="https://bonega.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-gray-800 bg-opacity-50 rounded-lg overflow-hidden shadow-lg backdrop-filter backdrop-blur-lg"
@@ -43,7 +43,7 @@ export default function ProductCards() {
                 <div className="relative h-56 w-full">
                     <Image
                         src="/lengthen-preview.png"
-                        alt="lengthen.ai Preview"
+                        alt="bonega.ai Preview"
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
                         style={{ objectFit: 'cover' }}
