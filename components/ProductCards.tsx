@@ -51,7 +51,7 @@ export default function ProductCards() {
                     />
                 </div>
                 <div className="p-6">
-                    <h4 className="text-2xl font-bold text-white">Lengthen.ai</h4>
+                    <h4 className="text-2xl font-bold text-white">Bonega.ai</h4>
                     <p className="text-gray-300 mt-2">Generate anything! Break the time barrier and create long-form AI videos, unlike anything you've seen before!</p>
                 </div>
             </motion.a>
