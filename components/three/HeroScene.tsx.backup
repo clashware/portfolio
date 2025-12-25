@@ -1,0 +1,321 @@
+"use client";
+
+import { useRef, useMemo } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import * as THREE from "three";
+
+/**
+ * DESIGN PHILOSOPHY: "Flowing Luminescence"
+ *
+ * Premium 3D background for Clashware - Swiss tech company aesthetic
+ * Brand colors: Red (#DC2626) and Orange (#F97316)
+ *
+ * Key principles:
+ * - Restrained elegance over visual chaos
+ * - Soft gradients and atmospheric depth
+ * - Purposeful, slow animations (not busy/chaotic)
+ * - Sophisticated color palette (desaturated brand colors)
+ * - Negative space - let elements breathe
+ */
+
+// Custom gradient shader for premium spheres
+const gradientVertexShader = `
+  varying vec2 vUv;
+  varying vec3 vPosition;
+  varying vec3 vNormal;
+
+  void main() {
+    vUv = uv;
+    vPosition = position;
+    vNormal = normalize(normalMatrix * normal);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const gradientFragmentShader = `
+  uniform float uTime;
+  uniform vec3 uColor1;
+  uniform vec3 uColor2;
+  uniform float uOpacity;
+
+  varying vec2 vUv;
+  varying vec3 vPosition;
+  varying vec3 vNormal;
+
+  void main() {
+    // Animated gradient with organic noise
+    float noise = sin(vPosition.x * 0.3 + uTime * 0.2) *
+                  cos(vPosition.y * 0.3 + uTime * 0.15) * 0.5 + 0.5;
+
+    // Radial gradient from center
+    float radial = length(vUv - 0.5) * 2.0;
+    vec3 color = mix(uColor1, uColor2, radial + noise * 0.12);
+
+    // Fresnel edge glow for depth
+    vec3 viewDir = normalize(cameraPosition - vPosition);
+    float fresnel = pow(1.0 - abs(dot(viewDir, vNormal)), 2.2);
+    color += fresnel * uColor1 * 0.25;
+
+    gl_FragColor = vec4(color, uOpacity);
+  }
+`;
+
+// Gradient orb with premium shader
+function GradientOrb({
+  position,
+  scale = 1,
+  color1 = "#DC2626",
+  color2 = "#F97316",
+  opacity = 0.12,
+}: {
+  position: [number, number, number];
+  scale?: number;
+  color1?: string;
+  color2?: string;
+  opacity?: number;
+}) {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  const uniforms = useMemo(() => ({
+    uTime: { value: 0 },
+    uColor1: { value: new THREE.Color(color1) },
+    uColor2: { value: new THREE.Color(color2) },
+    uOpacity: { value: opacity },
+  }), [color1, color2, opacity]);
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      const material = meshRef.current.material as THREE.ShaderMaterial;
+      material.uniforms.uTime.value = state.clock.elapsedTime;
+
+      // Very gentle floating and rotation
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.25) * 0.3;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.03;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={position} scale={scale}>
+      <sphereGeometry args={[1, 48, 48]} />
+      <shaderMaterial
+        uniforms={uniforms}
+        vertexShader={gradientVertexShader}
+        fragmentShader={gradientFragmentShader}
+        transparent
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+// Flowing abstract ribbon - represents connectivity/data flow
+function FlowingRibbon({
+  position,
+  rotation = [0, 0, 0],
+  scale = 1,
+  color = "#DC2626",
+}: {
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  scale?: number;
+  color?: string;
+}) {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      // Gentle undulating motion
+      const time = state.clock.elapsedTime;
+      meshRef.current.rotation.x += 0.0015;
+      meshRef.current.rotation.y += 0.002;
+      meshRef.current.position.y = position[1] + Math.sin(time * 0.2) * 0.25;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
+      <torusGeometry args={[1.5, 0.08, 32, 100]} />
+      <meshBasicMaterial
+        color={color}
+        transparent
+        opacity={0.1}
+        blending={THREE.AdditiveBlending}
+      />
+    </mesh>
+  );
+}
+
+// Minimal geometric plane - Swiss precision aesthetic
+function GeometricPlane({
+  position,
+  rotation,
+  scale = 1,
+  color,
+}: {
+  position: [number, number, number];
+  rotation: [number, number, number];
+  scale?: number;
+  color: string;
+}) {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.z += 0.0008;
+
+      // Gentle opacity breathing
+      const opacity = 0.05 + Math.sin(state.clock.elapsedTime * 0.3) * 0.02;
+      (meshRef.current.material as THREE.MeshBasicMaterial).opacity = opacity;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
+      <planeGeometry args={[2.5, 2.5]} />
+      <meshBasicMaterial
+        color={color}
+        transparent
+        opacity={0.05}
+        side={THREE.DoubleSide}
+      />
+    </mesh>
+  );
+}
+
+// Elegant particle field
+function Particles({ count = 150 }: { count?: number }) {
+  const pointsRef = useRef<THREE.Points>(null);
+
+  const positions = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      // Spread in a wide area behind the content
+      pos[i * 3] = (Math.random() - 0.5) * 40;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 30;
+      pos[i * 3 + 2] = -Math.random() * 30 - 5;
+    }
+    return pos;
+  }, [count]);
+
+  useFrame((state) => {
+    if (pointsRef.current) {
+      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.01;
+    }
+  });
+
+  return (
+    <points ref={pointsRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={count}
+          array={positions}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.06}
+        color="#DC2626"
+        transparent
+        opacity={0.4}
+        sizeAttenuation
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+      />
+    </points>
+  );
+}
+
+// Subtle grid floor
+function GridFloor() {
+  const gridRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (gridRef.current) {
+      const material = gridRef.current.material as THREE.MeshBasicMaterial;
+      material.opacity = 0.04 + Math.sin(state.clock.elapsedTime * 0.3) * 0.01;
+    }
+  });
+
+  return (
+    <mesh ref={gridRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -8, -10]}>
+      <planeGeometry args={[80, 80, 40, 40]} />
+      <meshBasicMaterial
+        color="#DC2626"
+        wireframe
+        transparent
+        opacity={0.04}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+// Smooth camera parallax
+function CameraRig() {
+  const { camera, pointer } = useThree();
+  const target = useRef({ x: 0, y: 0 });
+
+  useFrame(() => {
+    // Very subtle parallax
+    target.current.x = THREE.MathUtils.lerp(target.current.x, pointer.x * 0.8, 0.02);
+    target.current.y = THREE.MathUtils.lerp(target.current.y, pointer.y * 0.4, 0.02);
+
+    camera.position.x = target.current.x;
+    camera.position.y = target.current.y;
+    camera.lookAt(0, 0, 0);
+  });
+
+  return null;
+}
+
+function Scene() {
+  return (
+    <>
+      {/* Large ambient orbs - create depth and atmosphere */}
+      <GradientOrb position={[-6, 3, -12]} scale={5} opacity={0.08} />
+      <GradientOrb position={[8, -2, -18]} scale={7} color1="#F97316" color2="#DC2626" opacity={0.06} />
+      <GradientOrb position={[0, 5, -25]} scale={9} opacity={0.04} />
+
+      {/* Accent orbs - smaller, more visible */}
+      <GradientOrb position={[-4, 1, -6]} scale={2} opacity={0.15} />
+      <GradientOrb position={[5, -1, -8]} scale={2.5} color1="#F97316" color2="#DC2626" opacity={0.12} />
+
+      {/* Flowing ribbons - Swiss precision */}
+      <FlowingRibbon position={[-5, 2, -8]} scale={1.5} />
+      <FlowingRibbon position={[6, -1, -12]} scale={2} rotation={[Math.PI / 4, 0, 0]} color="#F97316" />
+      <FlowingRibbon position={[0, 4, -15]} scale={2.5} rotation={[0, Math.PI / 3, Math.PI / 6]} />
+
+      {/* Subtle particles */}
+      <Particles count={120} />
+
+      {/* Grid floor for depth */}
+      <GridFloor />
+
+      {/* Camera follows mouse */}
+      <CameraRig />
+    </>
+  );
+}
+
+export default function HeroScene() {
+  return (
+    <div className="absolute inset-0">
+      <Canvas
+        camera={{ position: [0, 0, 12], fov: 50 }}
+        dpr={[1, 2]}
+        gl={{
+          antialias: true,
+          alpha: true,
+          powerPreference: "high-performance",
+        }}
+      >
+        <color attach="background" args={["#0A0A0F"]} />
+        <fog attach="fog" args={["#0A0A0F", 20, 50]} />
+        <Scene />
+      </Canvas>
+    </div>
+  );
+}

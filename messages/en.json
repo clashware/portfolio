@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "title": "Clashware - Swiss Precision. Bold Innovation.",
+    "titleTemplate": "%s | Clashware",
+    "description": "Precision-engineered in Lausanne, Switzerland. Building the future of gaming, AI, and crypto. Discover Metacube, Bonega.ai, and Coira.io.",
+    "keywords": "Clashware, Swiss tech, gaming, AI, crypto, blockchain, Metacube, Bonega, Coira, Lausanne, Switzerland, innovation, technology",
+    "author": "Clashware Sàrl",
+    "ogImage": "/coira-preview.png",
+    "twitterHandle": "@clashware",
+    "siteUrl": "https://clashware.com"
+  },
+  "seo": {
+    "home": {
+      "title": "Clashware - Swiss Precision. Bold Innovation.",
+      "description": "Precision-engineered in Lausanne, Switzerland. Building the future of gaming, AI, and crypto with Metacube, Bonega.ai, and Coira.io."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn about Clashware, a Swiss technology company founded in 2025. Precision-engineered in Lausanne, building the future of gaming, AI, and crypto."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with Clashware. Based in Lausanne, Switzerland. Contact us for inquiries about our gaming, AI, and crypto products."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Read the terms of service for Clashware products and services. Legal terms governing use of our website and applications."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Learn how Clashware protects your privacy. Our commitment to data security and transparent information practices."
+    },
+    "products": {
+      "title": "Our Products",
+      "description": "Discover Clashware's innovative products: Metacube for gaming, Bonega.ai for AI video generation, and Coira.io for crypto intelligence."
+    }
+  },
+  "nav": {
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "hero": {
+    "tagline": "Swiss Precision. Bold Innovation.",
+    "subtitle": "Gaming. AI. Crypto. Three frontiers, one vision.",
+    "exploreProducts": "Explore Products",
+    "learnMore": "Learn More"
+  },
+  "products": {
+    "title": "What We Build",
+    "subtitle": "Three products pushing the boundaries of technology across gaming, AI, and blockchain.",
+    "metacube": {
+      "name": "Metacube",
+      "tagline": "Gaming at Scale",
+      "description": "Massive multiplayer treasure hunting. Compete with thousands. Discover hidden prizes."
+    },
+    "bonega": {
+      "name": "Bonega.ai",
+      "tagline": "Beyond Clips. Beyond Limits.",
+      "description": "Long-form AI video generation. Create extended content with maintained quality and coherence."
+    },
+    "coira": {
+      "name": "Coira.io",
+      "tagline": "Swiss Precision Meets Blockchain",
+      "description": "AI-powered crypto intelligence. Institutional-grade research on thousands of digital assets."
+    },
+    "tags": {
+      "gaming": "Gaming",
+      "multiplayer": "Multiplayer",
+      "web3": "Web3",
+      "ai": "AI",
+      "video": "Video",
+      "content": "Content",
+      "crypto": "Crypto",
+      "research": "Research"
+    }
+  },
+  "about": {
+    "title": "About Clashware",
+    "subtitle": "Precision-engineered in Lausanne, Switzerland. Building the future of gaming, AI, and crypto.",
+    "stats": {
+      "founded": "Founded",
+      "products": "Products",
+      "focusAreas": "Focus Areas",
+      "focusAreasValue": "Gaming, AI, Crypto",
+      "team": "Team",
+      "teamValue": "Growing"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "We are dedicated to creating products that push boundaries. Our goal is to provide cutting-edge software solutions and services, including consulting and support in the IT field. We are passionate about technology and committed to innovation."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "Three frontiers, one vision. We believe in the convergence of gaming, artificial intelligence, and blockchain technology. Each of our products represents a different facet of this vision, brought to life with Swiss precision and bold innovation."
+    },
+    "companyInfo": {
+      "title": "Company Information",
+      "legalName": "Legal Name",
+      "legalForm": "Legal Form",
+      "legalFormValue": "Limited Liability Company (Société à responsabilité limitée)",
+      "uid": "UID",
+      "address": "Address",
+      "country": "Country",
+      "countryValue": "Switzerland"
+    },
+    "purpose": {
+      "title": "Our Purpose",
+      "content": "The company's purpose is the development, marketing, operation, and trade of IT products. In addition, the company aims to provide services, particularly consulting and support services in the IT field. The company may establish branches and subsidiaries and may participate in other companies, both in Switzerland and abroad, and generally carry out any activity directly or indirectly related to its purpose."
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions about our products or want to collaborate? We'd love to hear from you.",
+    "email": {
+      "title": "Email",
+      "description": "For general inquiries and support"
+    },
+    "phone": {
+      "title": "Phone",
+      "description": "Monday to Friday, 9am-6pm CET"
+    },
+    "office": {
+      "title": "Office",
+      "description": "Avenue de Jurigoz 15, 1006"
+    },
+    "cta": {
+      "title": "Ready to Start a Conversation?",
+      "subtitle": "Whether you're interested in our products, looking for partnership opportunities, or just want to say hello, we're here to help.",
+      "button": "Send us an Email"
+    },
+    "location": "Based in Lausanne, Switzerland"
+  },
+  "cta": {
+    "title": "Ready to Build the Future?",
+    "subtitle": "Join us on our mission to push the boundaries of technology. Whether you're a gamer, creator, or investor, there's a place for you.",
+    "button": "Get Started"
+  },
+  "footer": {
+    "description": "Precision-engineered in Lausanne, Switzerland. Building the future of gaming, AI, and crypto.",
+    "brandGuidelines": "Brand Guidelines",
+    "navigation": "Navigation",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "legal": "Legal",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "social": "Social",
+    "madeIn": "Precision-engineered in Lausanne, Switzerland",
+    "copyright": "© {year} Clashware Sàrl. All rights reserved."
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: December 25, 2025",
+    "quickSummary": {
+      "title": "Quick Summary",
+      "content": "By using our website and services, you agree to these terms. Please read them carefully before accessing any Clashware products or services."
+    },
+    "intro": {
+      "welcome": "Welcome to Clashware! These terms and conditions outline the rules and regulations for the use of Clashware Sàrl's Website, located at clashware.com.",
+      "acceptance": "By accessing this website we assume you accept these terms and conditions. Do not continue to use Clashware if you do not agree to take all of the terms and conditions stated on this page."
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property Rights",
+      "content": "Other than the content you own, under these Terms, Clashware Sàrl and/or its licensors own all the intellectual property rights and materials contained in this Website. You are granted limited license only for purposes of viewing the material contained on this Website."
+    },
+    "restrictions": {
+      "title": "Restrictions",
+      "intro": "You are specifically restricted from all of the following:",
+      "items": [
+        "Publishing any Website material in any other media",
+        "Selling, sublicensing and/or otherwise commercializing any Website material",
+        "Publicly performing and/or showing any Website material",
+        "Using this Website in any way that is or may be damaging to this Website",
+        "Using this Website in any way that impacts user access to this Website",
+        "Using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity",
+        "Engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website",
+        "Using this Website to engage in any advertising or marketing"
+      ]
+    },
+    "governingLaw": {
+      "title": "Governing Law & Jurisdiction",
+      "content": "These Terms will be governed by and interpreted in accordance with the laws of Switzerland, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Vaud, Switzerland for the resolution of any disputes."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: December 25, 2025",
+    "summary": {
+      "title": "Your Privacy Matters",
+      "content": "We are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our services."
+    },
+    "intro": "Clashware Sàrl (\"us\", \"we\", or \"our\") operates the clashware.com website (the \"Service\"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.",
+    "collection": {
+      "title": "Information Collection and Use",
+      "content": "We collect several different types of information for various purposes to provide and improve our Service to you. This may include, but is not limited to, usage data and cookies."
+    },
+    "useOfData": {
+      "title": "Use of Data",
+      "intro": "Clashware Sàrl uses the collected data for various purposes:",
+      "items": [
+        "To provide and maintain the Service",
+        "To notify you about changes to our Service",
+        "To allow participation in interactive features",
+        "To provide customer care and support",
+        "To provide analysis for Service improvement",
+        "To monitor the usage of the Service",
+        "To detect and address technical issues"
+      ]
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "The security of your data is important to us. We strive to use commercially acceptable means to protect your Personal Data, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure."
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy, please {link} through our website.",
+      "linkText": "contact us"
+    }
+  }
+}

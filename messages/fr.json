@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "title": "Clashware - Précision suisse. Innovation audacieuse.",
+    "titleTemplate": "%s | Clashware",
+    "description": "Conçu avec précision à Lausanne, Suisse. Construisant l'avenir du gaming, de l'IA et de la crypto. Découvrez Metacube, Bonega.ai et Coira.io.",
+    "keywords": "Clashware, tech suisse, gaming, IA, crypto, blockchain, Metacube, Bonega, Coira, Lausanne, Suisse, innovation, technologie",
+    "author": "Clashware Sàrl",
+    "ogImage": "/coira-preview.png",
+    "twitterHandle": "@clashware",
+    "siteUrl": "https://clashware.com"
+  },
+  "seo": {
+    "home": {
+      "title": "Clashware - Précision suisse. Innovation audacieuse.",
+      "description": "Conçu avec précision à Lausanne, Suisse. Construisant l'avenir du gaming, de l'IA et de la crypto avec Metacube, Bonega.ai et Coira.io."
+    },
+    "about": {
+      "title": "À propos",
+      "description": "Découvrez Clashware, entreprise technologique suisse fondée en 2025. Conçu avec précision à Lausanne, construisant l'avenir du gaming, de l'IA et de la crypto."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contactez Clashware. Basé à Lausanne, Suisse. Contactez-nous pour toute question sur nos produits gaming, IA et crypto."
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "description": "Consultez les conditions d'utilisation des produits et services Clashware. Termes légaux régissant l'utilisation de notre site et applications."
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "description": "Découvrez comment Clashware protège votre vie privée. Notre engagement envers la sécurité des données et la transparence."
+    },
+    "products": {
+      "title": "Nos produits",
+      "description": "Découvrez les produits innovants de Clashware : Metacube pour le gaming, Bonega.ai pour la génération vidéo IA, et Coira.io pour l'intelligence crypto."
+    }
+  },
+  "nav": {
+    "products": "Produits",
+    "about": "À propos",
+    "contact": "Contact",
+    "getInTouch": "Nous contacter"
+  },
+  "hero": {
+    "tagline": "Précision suisse. Innovation audacieuse.",
+    "subtitle": "Gaming. IA. Crypto. Trois frontières, une vision.",
+    "exploreProducts": "Découvrir nos produits",
+    "learnMore": "En savoir plus"
+  },
+  "products": {
+    "title": "Ce que nous construisons",
+    "subtitle": "Trois produits repoussant les limites de la technologie dans le gaming, l'IA et la blockchain.",
+    "metacube": {
+      "name": "Metacube",
+      "tagline": "Le gaming à grande échelle",
+      "description": "Chasse au trésor multijoueur massive. Affrontez des milliers de joueurs. Découvrez des prix cachés."
+    },
+    "bonega": {
+      "name": "Bonega.ai",
+      "tagline": "Au-delà des clips. Au-delà des limites.",
+      "description": "Génération de vidéos IA longue durée. Créez du contenu étendu avec une qualité et une cohérence maintenues."
+    },
+    "coira": {
+      "name": "Coira.io",
+      "tagline": "La précision suisse rencontre la blockchain",
+      "description": "Intelligence crypto alimentée par l'IA. Recherche de niveau institutionnel sur des milliers d'actifs numériques."
+    },
+    "tags": {
+      "gaming": "Gaming",
+      "multiplayer": "Multijoueur",
+      "web3": "Web3",
+      "ai": "IA",
+      "video": "Vidéo",
+      "content": "Contenu",
+      "crypto": "Crypto",
+      "research": "Recherche"
+    }
+  },
+  "about": {
+    "title": "À propos de Clashware",
+    "subtitle": "Conçu avec précision à Lausanne, Suisse. Construisant l'avenir du gaming, de l'IA et de la crypto.",
+    "stats": {
+      "founded": "Fondée",
+      "products": "Produits",
+      "focusAreas": "Domaines",
+      "focusAreasValue": "Gaming, IA, Crypto",
+      "team": "Équipe",
+      "teamValue": "En croissance"
+    },
+    "mission": {
+      "title": "Notre mission",
+      "content": "Nous nous consacrons à créer des produits qui repoussent les limites. Notre objectif est de fournir des solutions logicielles et des services de pointe, y compris le conseil et le support dans le domaine informatique. Nous sommes passionnés par la technologie et engagés dans l'innovation."
+    },
+    "vision": {
+      "title": "Notre vision",
+      "content": "Trois frontières, une vision. Nous croyons en la convergence du gaming, de l'intelligence artificielle et de la technologie blockchain. Chacun de nos produits représente une facette différente de cette vision, concrétisée avec la précision suisse et une innovation audacieuse."
+    },
+    "companyInfo": {
+      "title": "Informations sur l'entreprise",
+      "legalName": "Raison sociale",
+      "legalForm": "Forme juridique",
+      "legalFormValue": "Société à responsabilité limitée (Sàrl)",
+      "uid": "IDE",
+      "address": "Adresse",
+      "country": "Pays",
+      "countryValue": "Suisse"
+    },
+    "purpose": {
+      "title": "Notre raison d'être",
+      "content": "L'entreprise a pour but le développement, la commercialisation, l'exploitation et le commerce de produits informatiques. En outre, l'entreprise vise à fournir des services, notamment des services de conseil et de support dans le domaine informatique. L'entreprise peut créer des succursales et des filiales et peut participer à d'autres entreprises, tant en Suisse qu'à l'étranger, et exercer généralement toute activité directement ou indirectement liée à son objet."
+    }
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "subtitle": "Des questions sur nos produits ou envie de collaborer ? Nous serions ravis de vous entendre.",
+    "email": {
+      "title": "Email",
+      "description": "Pour les demandes générales et le support"
+    },
+    "phone": {
+      "title": "Téléphone",
+      "description": "Du lundi au vendredi, 9h-18h CET"
+    },
+    "office": {
+      "title": "Bureau",
+      "description": "Avenue de Jurigoz 15, 1006"
+    },
+    "cta": {
+      "title": "Prêt à démarrer une conversation ?",
+      "subtitle": "Que vous soyez intéressé par nos produits, à la recherche d'opportunités de partenariat, ou que vous vouliez simplement dire bonjour, nous sommes là pour vous aider.",
+      "button": "Envoyez-nous un email"
+    },
+    "location": "Basé à Lausanne, Suisse"
+  },
+  "cta": {
+    "title": "Prêt à construire l'avenir ?",
+    "subtitle": "Rejoignez-nous dans notre mission de repousser les limites de la technologie. Que vous soyez joueur, créateur ou investisseur, il y a une place pour vous.",
+    "button": "Commencer"
+  },
+  "footer": {
+    "description": "Conçu avec précision à Lausanne, Suisse. Construisant l'avenir du gaming, de l'IA et de la crypto.",
+    "brandGuidelines": "Charte graphique",
+    "navigation": "Navigation",
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "legal": "Mentions légales",
+    "termsOfService": "Conditions d'utilisation",
+    "privacyPolicy": "Politique de confidentialité",
+    "social": "Réseaux sociaux",
+    "madeIn": "Conçu avec précision à Lausanne, Suisse",
+    "copyright": "© {year} Clashware Sàrl. Tous droits réservés."
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "lastUpdated": "Dernière mise à jour : 25 décembre 2025",
+    "quickSummary": {
+      "title": "Résumé rapide",
+      "content": "En utilisant notre site web et nos services, vous acceptez ces conditions. Veuillez les lire attentivement avant d'accéder à tout produit ou service Clashware."
+    },
+    "intro": {
+      "welcome": "Bienvenue chez Clashware ! Ces termes et conditions définissent les règles et réglementations pour l'utilisation du site web de Clashware Sàrl, situé à clashware.com.",
+      "acceptance": "En accédant à ce site web, nous supposons que vous acceptez ces termes et conditions. Ne continuez pas à utiliser Clashware si vous n'acceptez pas toutes les conditions énoncées sur cette page."
+    },
+    "intellectualProperty": {
+      "title": "Droits de propriété intellectuelle",
+      "content": "À l'exception du contenu que vous possédez, en vertu de ces Conditions, Clashware Sàrl et/ou ses concédants de licence possèdent tous les droits de propriété intellectuelle et les matériaux contenus dans ce Site Web. Vous bénéficiez d'une licence limitée uniquement à des fins de visualisation du matériel contenu sur ce Site Web."
+    },
+    "restrictions": {
+      "title": "Restrictions",
+      "intro": "Vous êtes spécifiquement interdit de tout ce qui suit :",
+      "items": [
+        "Publier tout matériel du Site Web dans tout autre média",
+        "Vendre, sous-licencier et/ou autrement commercialiser tout matériel du Site Web",
+        "Exécuter et/ou montrer publiquement tout matériel du Site Web",
+        "Utiliser ce Site Web de toute manière qui est ou pourrait être dommageable pour ce Site Web",
+        "Utiliser ce Site Web de toute manière qui impacte l'accès des utilisateurs à ce Site Web",
+        "Utiliser ce Site Web contrairement aux lois et réglementations applicables, ou de toute manière pouvant causer un préjudice au Site Web, ou à toute personne ou entité commerciale",
+        "S'engager dans toute extraction de données, récolte de données, extraction de données ou toute autre activité similaire en relation avec ce Site Web",
+        "Utiliser ce Site Web pour s'engager dans toute publicité ou marketing"
+      ]
+    },
+    "governingLaw": {
+      "title": "Droit applicable et juridiction",
+      "content": "Ces Conditions seront régies et interprétées conformément aux lois de la Suisse, et vous vous soumettez à la juridiction non exclusive des tribunaux étatiques et fédéraux situés dans le canton de Vaud, en Suisse, pour la résolution de tout litige."
+    }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "lastUpdated": "Dernière mise à jour : 25 décembre 2025",
+    "summary": {
+      "title": "Votre vie privée compte",
+      "content": "Nous nous engageons à protéger votre vie privée. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez nos services."
+    },
+    "intro": "Clashware Sàrl (\"nous\", \"notre\" ou \"nos\") exploite le site web clashware.com (le \"Service\"). Cette page vous informe de nos politiques concernant la collecte, l'utilisation et la divulgation des données personnelles lorsque vous utilisez notre Service et des choix qui s'offrent à vous concernant ces données.",
+    "collection": {
+      "title": "Collecte et utilisation des informations",
+      "content": "Nous collectons plusieurs types d'informations à diverses fins pour vous fournir et améliorer notre Service. Cela peut inclure, mais sans s'y limiter, les données d'utilisation et les cookies."
+    },
+    "useOfData": {
+      "title": "Utilisation des données",
+      "intro": "Clashware Sàrl utilise les données collectées à diverses fins :",
+      "items": [
+        "Pour fournir et maintenir le Service",
+        "Pour vous informer des modifications apportées à notre Service",
+        "Pour permettre la participation aux fonctionnalités interactives",
+        "Pour fournir un service client et un support",
+        "Pour fournir des analyses pour l'amélioration du Service",
+        "Pour surveiller l'utilisation du Service",
+        "Pour détecter et résoudre les problèmes techniques"
+      ]
+    },
+    "security": {
+      "title": "Sécurité des données",
+      "content": "La sécurité de vos données est importante pour nous. Nous nous efforçons d'utiliser des moyens commercialement acceptables pour protéger vos Données Personnelles, mais n'oubliez pas qu'aucune méthode de transmission sur Internet ou de stockage électronique n'est sûre à 100%."
+    },
+    "contactUs": {
+      "title": "Nous contacter",
+      "content": "Si vous avez des questions concernant cette Politique de confidentialité, veuillez {link} via notre site web.",
+      "linkText": "nous contacter"
+    }
+  }
+}
