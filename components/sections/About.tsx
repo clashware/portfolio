@@ -55,7 +55,7 @@ export default function About() {
                 </div>
               </div>
               <div>
-                <p className="text-snow font-medium">Swiss Made</p>
+                <p className="text-snow font-medium">Made in Switzerland</p>
                 <p className="text-stone text-sm">
                   Precision-engineered in Lausanne, {t("companyInfo.countryValue")}
                 </p>
