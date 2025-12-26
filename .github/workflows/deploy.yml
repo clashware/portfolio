@@ -19,4 +19,12 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: ${{ secrets.DEPLOY_SCRIPT }}
+          script: |
+            cd /srv/projects/landing-page
+            git stash
+            git fetch origin main
+            git checkout main
+            git pull origin main
+            docker build -t clashware-landing-page .
+            docker rm -f clashware-landing-page 2>/dev/null || true
+            docker run -d --name clashware-landing-page --restart unless-stopped -p 3000:3000 clashware-landing-page
