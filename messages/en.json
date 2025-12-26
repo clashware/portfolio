@@ -125,6 +125,11 @@
       "title": "Office",
       "description": "Avenue de Jurigoz 15, 1006"
     },
+    "hours": {
+      "title": "Business Hours",
+      "value": "9:00 - 18:00 CET",
+      "description": "Monday to Friday"
+    },
     "cta": {
       "title": "Ready to Start a Conversation?",
       "subtitle": "Whether you're interested in our products, looking for partnership opportunities, or just want to say hello, we're here to help.",

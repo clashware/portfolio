@@ -125,6 +125,11 @@
       "title": "Bureau",
       "description": "Avenue de Jurigoz 15, 1006"
     },
+    "hours": {
+      "title": "Horaires d'ouverture",
+      "value": "9h00 - 18h00 CET",
+      "description": "Du lundi au vendredi"
+    },
     "cta": {
       "title": "Prêt à démarrer une conversation ?",
       "subtitle": "Que vous soyez intéressé par nos produits, à la recherche d'opportunités de partenariat, ou que vous vouliez simplement dire bonjour, nous sommes là pour vous aider.",
