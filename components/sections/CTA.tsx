@@ -54,7 +54,7 @@ export default function CTA() {
               asChild
             >
               <a
-                href="https://linkedin.com/company/107706302/"
+                href="https://x.com/Coira_io"
                 target="_blank"
                 rel="noopener noreferrer"
               >

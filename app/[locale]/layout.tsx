@@ -121,7 +121,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Validate locale
-  if (!routing.locales.includes(locale as typeof routing.locales[number])) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
@@ -160,11 +160,13 @@ export default async function LocaleLayout({
       contactType: "customer service",
       email: "contact@clashware.com",
     },
-    sameAs: [
-      "https://x.com/clashware",
-      "https://linkedin.com/company/107706302/",
+    sameAs: ["https://x.com/Coira_io"],
+    knowsAbout: [
+      "Gaming",
+      "Artificial Intelligence",
+      "Cryptocurrency",
+      "Blockchain",
     ],
-    knowsAbout: ["Gaming", "Artificial Intelligence", "Cryptocurrency", "Blockchain"],
   };
 
   return (
@@ -175,7 +177,9 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-obsidian text-snow`}>
+      <body
+        className={`${inter.variable} font-sans antialiased bg-obsidian text-snow`}
+      >
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

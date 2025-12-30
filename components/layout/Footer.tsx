@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Twitter, Linkedin, Download } from "lucide-react";
+import { Twitter, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useTranslations } from "next-intl";
@@ -14,12 +14,7 @@ const products = [
 ];
 
 const social = [
-  { name: "Twitter", href: "https://x.com/clashware", icon: Twitter },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/company/107706302/",
-    icon: Linkedin,
-  },
+  { name: "Twitter", href: "https://x.com/Coira_io", icon: Twitter },
 ];
 
 export default function Footer() {
