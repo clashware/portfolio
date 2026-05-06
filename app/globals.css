@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+:root {
+  --background: #0A0A0F;
+  --foreground: #FAFAFA;
+  --card: #0A0A0F;
+  --card-foreground: #FAFAFA;
+  --popover: #0A0A0F;
+  --popover-foreground: #FAFAFA;
+  --primary: #DC2626;
+  --primary-foreground: #FAFAFA;
+  --secondary: #27272A;
+  --secondary-foreground: #FAFAFA;
+  --muted: #27272A;
+  --muted-foreground: #A1A1AA;
+  --accent: #27272A;
+  --accent-foreground: #FAFAFA;
+  --destructive: #EF4444;
+  --border: #27272A;
+  --input: #27272A;
+  --ring: #DC2626;
+  --radius: 0rem;
+}
+
+@theme {
+  /* Colors - Dark mode ONLY */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted-foreground);
+  --color-border: var(--border);
+  
+  --color-brand: #DC2626;
+  --color-destructive: var(--destructive);
+
+  /* Product Colors */
+  --color-lengthen: #3B82F6;
+  --color-coira: #10B981;
+  --color-metacube: #22C55E;
+  --color-bonega: #A855F7;
+
+  /* Shadcn standard mappings */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius - Machined, no rounding */
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-full: var(--radius);
+  --radius: var(--radius);
+
+  /* Shadows - Inset borders only */
+  --shadow-sm: inset 0 0 0 1px var(--border);
+  --shadow-md: inset 0 0 0 1px var(--border);
+  --shadow-lg: inset 0 0 0 1px var(--border);
+  --shadow-xl: inset 0 0 0 1px var(--border);
+  --shadow-2xl: inset 0 0 0 1px var(--border);
+  --shadow-inner: inset 0 0 0 1px var(--border);
+  --shadow: inset 0 0 0 1px var(--border);
+
+  /* Easing */
+  --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Animations & Keyframes */
+  @keyframes wireframe-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes wave {
+    0% { filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.2)); }
+    100% { filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.4)); }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility hover-border-bright {
+  transition: border-color 0.2s var(--ease-default);
+  &:hover {
+    border-color: #FAFAFA;
+  }
+}
+
+@utility link-terminal {
+  font-family: var(--font-mono);
+  position: relative;
+  text-decoration: none;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s var(--ease-default);
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@utility focus-snap {
+  scroll-snap-align: center;
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #0A0A0F, 0 0 0 4px #DC2626;
+  }
+}
+
+@utility bg-grid-pattern {
+  background-size: 48px 48px;
+  background-image: linear-gradient(to right, rgba(39, 39, 42, 0.5) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(39, 39, 42, 0.5) 1px, transparent 1px);
+}
+
+@utility hover-lift {
+  transition: transform 0.3s var(--ease-default);
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@utility glass {
+  background-color: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@utility animate-wireframe-shimmer {
+  animation: wireframe-shimmer 2s linear infinite;
+}
+
+@utility animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.5s var(--ease-default) forwards;
+}
+
+@utility animate-wave {
+  animation: wave 2s infinite alternate;
+}
+
+@utility animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@utility animate-gradient-shift {
+  animation: gradient-shift 4s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid #DC2626;
+  outline-offset: 2px;
+}
+
+.skip-to-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--background);
+  color: var(--foreground);
+  z-index: 50;
+  border: 1px solid var(--border);
+}

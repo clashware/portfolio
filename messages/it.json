@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "title": "Clashware - Precisione svizzera. Innovazione audace.",
+    "titleTemplate": "%s | Clashware",
+    "description": "Azienda tecnologica svizzera che costruisce il futuro del software, dell'IA e delle criptovalute. Scopri Metacube, Bonega.ai e Coira.io.",
+    "keywords": "Clashware, tech svizzera, gaming, IA, crypto, blockchain, Metacube, Bonega, Coira, Losanna, Svizzera, innovazione, tecnologia",
+    "author": "Clashware Sàrl",
+    "ogImage": "/logo/clashware-small.png",
+    "twitterHandle": "@clashware",
+    "siteUrl": "https://clashware.com"
+  },
+  "seo": {
+    "home": {
+      "title": "Clashware - Precisione svizzera. Innovazione audace.",
+      "description": "Azienda tecnologica svizzera che costruisce il futuro del software, dell'IA e delle criptovalute con Metacube, Bonega.ai e Coira.io."
+    },
+    "about": {
+      "title": "Chi siamo",
+      "description": "Scopri Clashware, azienda tecnologica svizzera fondata nel 2025. Sviluppata a Losanna, costruendo il futuro del software, dell'IA e delle criptovalute."
+    },
+    "contact": {
+      "title": "Contatti",
+      "description": "Contatta Clashware. Con sede a Losanna, Svizzera. Contattaci per informazioni sui nostri prodotti software, IA e crypto."
+    },
+    "terms": {
+      "title": "Termini di servizio",
+      "description": "Leggi i termini di servizio per i prodotti e servizi Clashware. Termini legali che regolano l'uso del nostro sito e delle nostre applicazioni."
+    },
+    "privacy": {
+      "title": "Informativa sulla privacy",
+      "description": "Scopri come Clashware protegge la tua privacy. Il nostro impegno per la sicurezza dei dati e pratiche informative trasparenti."
+    },
+    "products": {
+      "title": "I nostri prodotti",
+      "description": "Scopri i prodotti innovativi di Clashware: Metacube per il gaming multiplayer, Bonega.ai per la generazione video IA e Coira.io per l'intelligenza crypto."
+    }
+  },
+  "nav": {
+    "products": "Prodotti",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "getInTouch": "Contattaci"
+  },
+  "hero": {
+    "tagline": "Precisione svizzera. Innovazione audace.",
+    "subtitle": "Software enterprise, sistemi IA e prodotti digitali. Sviluppati a Losanna.",
+    "exploreProducts": "Esplora i prodotti",
+    "learnMore": "Scopri di più"
+  },
+  "products": {
+    "title": "Cosa costruiamo",
+    "subtitle": "Tre prodotti che spingono i confini della tecnologia nel software, nell'IA e nella blockchain.",
+    "metacube": {
+      "name": "Metacube",
+      "tagline": "Gaming su larga scala",
+      "description": "Caccia al tesoro multiplayer massiva. Competi con migliaia di giocatori. Scopri premi nascosti."
+    },
+    "bonega": {
+      "name": "Bonega.ai",
+      "tagline": "Oltre i clip. Oltre i limiti.",
+      "description": "Generazione video IA di lunga durata. Crea contenuti estesi con qualità e coerenza mantenute."
+    },
+    "coira": {
+      "name": "Coira.io",
+      "tagline": "La precisione svizzera incontra la blockchain",
+      "description": "Intelligenza crypto alimentata dall'IA. Ricerca di livello istituzionale su migliaia di asset digitali."
+    },
+    "tags": {
+      "gaming": "Gaming",
+      "multiplayer": "Multiplayer",
+      "web3": "Web3",
+      "ai": "IA",
+      "video": "Video",
+      "content": "Contenuto",
+      "crypto": "Crypto",
+      "research": "Ricerca",
+      "saas": "SaaS",
+      "legal": "Legale",
+      "signature": "Firma elettronica"
+    },
+    "waiverkit": {
+      "name": "WaiverKit",
+      "tagline": "Liberatorie firmate su schermo. Pronte per l'audit.",
+      "description": "Software di liberatoria di responsabilità digitale. Palestre, parchi avventura e noleggi sostituiscono la carta con un flusso QR, firmato su telefono, archiviato con marca temporale legale."
+    }
+  },
+  "about": {
+    "title": "Chi è Clashware",
+    "subtitle": "Azienda tecnologica svizzera che costruisce il futuro del software, dell'IA e delle criptovalute.",
+    "stats": {
+      "founded": "Fondata",
+      "products": "Prodotti",
+      "focusAreas": "Settori",
+      "focusAreasValue": "Software, IA, Crypto",
+      "team": "Team",
+      "teamValue": "In crescita"
+    },
+    "mission": {
+      "title": "La nostra missione",
+      "content": "Siamo dedicati alla creazione di prodotti che superano i confini. Il nostro obiettivo è fornire soluzioni software e servizi all'avanguardia, inclusa consulenza e supporto nel settore IT. Siamo appassionati di tecnologia e impegnati nell'innovazione."
+    },
+    "vision": {
+      "title": "La nostra visione",
+      "content": "Tre frontiere, una visione. Crediamo nella convergenza dell'ingegneria software, dell'intelligenza artificiale e della tecnologia blockchain. Ognuno dei nostri prodotti rappresenta un aspetto diverso di questa visione, realizzato con precisione svizzera e innovazione audace."
+    },
+    "companyInfo": {
+      "title": "Informazioni aziendali",
+      "legalName": "Ragione sociale",
+      "legalForm": "Forma giuridica",
+      "legalFormValue": "Società a responsabilità limitata (Sagl)",
+      "uid": "IDE",
+      "address": "Indirizzo",
+      "country": "Paese",
+      "countryValue": "Svizzera"
+    },
+    "purpose": {
+      "title": "Il nostro scopo",
+      "content": "Lo scopo dell'azienda è lo sviluppo, la commercializzazione, la gestione e il commercio di prodotti IT. Inoltre, l'azienda mira a fornire servizi, in particolare servizi di consulenza e supporto nel settore IT. L'azienda può stabilire filiali e controllate e può partecipare ad altre aziende, sia in Svizzera che all'estero, e generalmente svolgere qualsiasi attività direttamente o indirettamente correlata al suo scopo."
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Hai domande sui nostri prodotti o vuoi collaborare? Ci piacerebbe sentirti.",
+    "email": {
+      "title": "Email",
+      "description": "Per richieste generali e supporto"
+    },
+    "phone": {
+      "title": "Telefono",
+      "description": "Da lunedì a venerdì, 9-18 CET"
+    },
+    "office": {
+      "title": "Ufficio",
+      "description": "Avenue de Jurigoz 15, 1006"
+    },
+    "hours": {
+      "title": "Orari di apertura",
+      "value": "9:00 - 18:00 CET",
+      "description": "Da lunedì a venerdì"
+    },
+    "cta": {
+      "title": "Pronto per iniziare una conversazione?",
+      "subtitle": "Che tu sia interessato ai nostri prodotti, alla ricerca di opportunità di partnership, o voglia semplicemente salutarci, siamo qui per aiutarti.",
+      "button": "Inviaci un'email"
+    },
+    "location": "Con sede a Losanna, Svizzera",
+    "form": {
+      "title": "Invia un messaggio",
+      "name": "Il tuo nome",
+      "namePlaceholder": "Nome completo...",
+      "email": "La tua email",
+      "emailPlaceholder": "email@esempio.com",
+      "subject": "Oggetto",
+      "subjectPlaceholder": "Di cosa si tratta...",
+      "message": "Messaggio",
+      "messagePlaceholder": "Dicci di più...",
+      "submit": "Invia messaggio",
+      "sending": "Invio in corso...",
+      "success": "Messaggio inviato. Ti risponderemo a breve.",
+      "error": "Invio non riuscito. Contattaci direttamente via email."
+    }
+  },
+  "team": {
+    "title": "I fondatori",
+    "subtitle": "Tre ingegneri dell'EPFL che costruiscono insieme dal 2021, uniti dalla passione per spingersi oltre i confini della tecnologia.",
+    "kamyar": {
+      "name": "Kamyar Taher",
+      "role": "Co-fondatore & CEO",
+      "education": "MSc Robotica, EPFL",
+      "bio": "Ingegnere full-stack e architetto di sistemi IA con oltre 5 anni di esperienza nello sviluppo di applicazioni web in produzione. Esperto in React, Next.js, TypeScript ed esperienze 3D ad alte prestazioni con Three.js e WebAssembly. Guida la visione tecnica di Clashware, dalle interfacce pixel-perfect alle pipeline IA multi-agente."
+    },
+    "bastien": {
+      "name": "Bastien Faivre",
+      "role": "Co-fondatore & Ingegnere di sistemi",
+      "education": "MSc Informatica, EPFL",
+      "bio": "Specialista in sistemi distribuiti focalizzato su sicurezza e affidabilità. Ha contribuito a motori di consenso BFT e condotto valutazioni delle prestazioni di sistemi Layer 2 in collaborazione con la Fondazione Ethereum. Porta una profonda competenza blockchain nei prodotti di Clashware."
+    },
+    "nils": {
+      "name": "Nils Delage",
+      "role": "Co-fondatore & Sviluppatore Full-Stack",
+      "education": "BSc Ingegneria meccanica, EPFL",
+      "bio": "Sviluppatore full-stack con un forte focus sullo sviluppo prodotto e l'infrastruttura. Attivo nell'ecosistema blockchain attraverso la Blockchain Student Association dell'EPFL. Guida l'ingegneria di prodotto e l'architettura delle piattaforme di Clashware."
+    }
+  },
+  "cta": {
+    "title": "Pronto a costruire il futuro?",
+    "subtitle": "Unisciti a noi nella nostra missione di superare i confini della tecnologia. Che tu sia un gamer, un creatore o un investitore, c'è posto per te.",
+    "button": "Inizia",
+    "followUs": "Seguici"
+  },
+  "footer": {
+    "description": "Azienda tecnologica svizzera che costruisce il futuro del software, dell'IA e delle criptovalute.",
+    "brandGuidelines": "Linee guida del marchio",
+    "products": "Prodotti",
+    "navigation": "Navigazione",
+    "home": "Home",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "legal": "Legale",
+    "termsOfService": "Termini di servizio",
+    "privacyPolicy": "Informativa sulla privacy",
+    "social": "Social",
+    "madeIn": "Made in Switzerland",
+    "copyright": "© {year} Clashware Sàrl. Tutti i diritti riservati."
+  },
+  "terms": {
+    "title": "Termini di servizio",
+    "lastUpdated": "Ultimo aggiornamento: 25 dicembre 2025",
+    "quickSummary": {
+      "title": "Riepilogo rapido",
+      "content": "Utilizzando il nostro sito web e i nostri servizi, accetti questi termini. Leggili attentamente prima di accedere a qualsiasi prodotto o servizio Clashware."
+    },
+    "intro": {
+      "welcome": "Benvenuto in Clashware! Questi termini e condizioni delineano le regole e i regolamenti per l'utilizzo del sito web di Clashware Sàrl, situato su clashware.com.",
+      "acceptance": "Accedendo a questo sito web, assumiamo che tu accetti questi termini e condizioni. Non continuare a utilizzare Clashware se non accetti tutti i termini e le condizioni indicati in questa pagina."
+    },
+    "intellectualProperty": {
+      "title": "Diritti di proprietà intellettuale",
+      "content": "Ad eccezione dei contenuti di tua proprietà, secondo questi Termini, Clashware Sàrl e/o i suoi licenziatari possiedono tutti i diritti di proprietà intellettuale e i materiali contenuti in questo Sito Web. Ti viene concessa una licenza limitata solo ai fini della visualizzazione del materiale contenuto in questo Sito Web."
+    },
+    "restrictions": {
+      "title": "Restrizioni",
+      "intro": "Ti è specificamente vietato quanto segue:",
+      "items": [
+        "Pubblicare qualsiasi materiale del Sito Web su altri media",
+        "Vendere, sublicenziare e/o altrimenti commercializzare qualsiasi materiale del Sito Web",
+        "Eseguire pubblicamente e/o mostrare qualsiasi materiale del Sito Web",
+        "Utilizzare questo Sito Web in qualsiasi modo che sia o possa essere dannoso per questo Sito Web",
+        "Utilizzare questo Sito Web in qualsiasi modo che influisca sull'accesso degli utenti a questo Sito Web",
+        "Utilizzare questo Sito Web contrariamente alle leggi e ai regolamenti applicabili, o in qualsiasi modo che possa causare danni al Sito Web, o a qualsiasi persona o entità commerciale",
+        "Impegnarsi in qualsiasi data mining, raccolta di dati, estrazione di dati o qualsiasi altra attività simile in relazione a questo Sito Web",
+        "Utilizzare questo Sito Web per qualsiasi pubblicità o marketing"
+      ]
+    },
+    "governingLaw": {
+      "title": "Legge applicabile e giurisdizione",
+      "content": "Questi Termini saranno regolati e interpretati in conformità con le leggi della Svizzera, e ti sottoponi alla giurisdizione non esclusiva dei tribunali statali e federali situati nel Canton Vaud, Svizzera, per la risoluzione di eventuali controversie."
+    }
+  },
+  "privacy": {
+    "title": "Informativa sulla privacy",
+    "lastUpdated": "Ultimo aggiornamento: 25 dicembre 2025",
+    "summary": {
+      "title": "La tua privacy è importante",
+      "content": "Ci impegniamo a proteggere la tua privacy. Questa informativa spiega come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali quando utilizzi i nostri servizi."
+    },
+    "intro": "Clashware Sàrl (\"noi\", \"ci\" o \"nostro\") gestisce il sito web clashware.com (il \"Servizio\"). Questa pagina ti informa sulle nostre politiche riguardanti la raccolta, l'uso e la divulgazione dei dati personali quando utilizzi il nostro Servizio e sulle scelte a tua disposizione relative a tali dati.",
+    "collection": {
+      "title": "Raccolta e utilizzo delle informazioni",
+      "content": "Raccogliamo diversi tipi di informazioni per vari scopi al fine di fornirti e migliorare il nostro Servizio. Questo può includere, ma non è limitato a, dati di utilizzo e cookie."
+    },
+    "useOfData": {
+      "title": "Utilizzo dei dati",
+      "intro": "Clashware Sàrl utilizza i dati raccolti per vari scopi:",
+      "items": [
+        "Per fornire e mantenere il Servizio",
+        "Per informarti sui cambiamenti al nostro Servizio",
+        "Per permettere la partecipazione alle funzionalità interattive",
+        "Per fornire assistenza clienti e supporto",
+        "Per fornire analisi per il miglioramento del Servizio",
+        "Per monitorare l'utilizzo del Servizio",
+        "Per rilevare e affrontare problemi tecnici"
+      ]
+    },
+    "security": {
+      "title": "Sicurezza dei dati",
+      "content": "La sicurezza dei tuoi dati è importante per noi. Ci impegniamo a utilizzare mezzi commercialmente accettabili per proteggere i tuoi Dati Personali, ma ricorda che nessun metodo di trasmissione su Internet o di archiviazione elettronica è sicuro al 100%."
+    },
+    "contactUs": {
+      "title": "Contattaci",
+      "content": "Se hai domande su questa Informativa sulla privacy, {link} attraverso il nostro sito web.",
+      "linkText": "contattaci"
+    }
+  }
+}

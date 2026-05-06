@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="bladeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="50%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <linearGradient id="bladeGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="50%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle (optional, can be removed for transparent) -->
+  <circle cx="60" cy="60" r="56" fill="#0A0A0F" stroke="url(#bladeGradient)" stroke-width="2"/>
+
+  <!-- Blade 1 - Top-left to bottom-right -->
+  <path
+    d="M28 32 L60 60 L92 88 L88 92 L60 64 L32 36 Z"
+    fill="url(#bladeGradient)"
+  />
+
+  <!-- Blade 2 - Top-right to bottom-left -->
+  <path
+    d="M92 32 L60 60 L28 88 L32 92 L60 64 L88 36 Z"
+    fill="url(#bladeGradient2)"
+  />
+
+  <!-- Center intersection glow -->
+  <circle cx="60" cy="60" r="8" fill="#FAFAFA" opacity="0.9"/>
+  <circle cx="60" cy="60" r="4" fill="url(#bladeGradient)"/>
+
+  <!-- Blade tips - highlights -->
+  <circle cx="28" cy="32" r="3" fill="#F97316"/>
+  <circle cx="92" cy="32" r="3" fill="#F97316"/>
+  <circle cx="28" cy="88" r="3" fill="#DC2626"/>
+  <circle cx="92" cy="88" r="3" fill="#DC2626"/>
+</svg>

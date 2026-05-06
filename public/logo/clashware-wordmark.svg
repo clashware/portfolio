@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60" fill="none">
+  <defs>
+    <linearGradient id="wordmarkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="50%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(0, 5)">
+    <path
+      d="M10 10 L25 25 L40 40 M40 10 L25 25 L10 40"
+      stroke="url(#wordmarkGradient)"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+    <circle cx="25" cy="25" r="3" fill="#FAFAFA"/>
+  </g>
+
+  <!-- Text: CLASHWARE -->
+  <text x="55" y="42" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700" fill="#FAFAFA" letter-spacing="-0.02em">
+    CLASHWARE
+  </text>
+</svg>
