@@ -1,22 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
 import { routing } from "@/lib/i18n/routing";
+import { BASE_URL, buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import MotionProvider from "@/components/providers/MotionProvider";
+import { fontClasses } from "../fonts";
 import "../globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -33,6 +24,13 @@ interface MetadataMessages {
   siteUrl: string;
 }
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0A0A0F",
+  colorScheme: "dark",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -41,10 +39,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const messages = await getMessages({ locale });
   const meta = messages.metadata as MetadataMessages;
-  const baseUrl = meta.siteUrl || "https://clashware.com";
+
+  // Per-page canonical/hreflang/OG come from each page's generateMetadata
+  // (via buildPageMetadata); the layout provides home-equivalent fallbacks.
+  const homeDefaults = await buildPageMetadata(locale, "home", "/");
 
   return {
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(BASE_URL),
+    ...homeDefaults,
     title: {
       default: meta.title,
       template: meta.titleTemplate,
@@ -65,23 +67,6 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
-    openGraph: {
-      type: "website",
-      locale: locale === "fr" ? "fr_FR" : "en_US",
-      alternateLocale: locale === "fr" ? "en_US" : "fr_FR",
-      url: baseUrl,
-      siteName: "Clashware",
-      title: meta.title,
-      description: meta.description,
-      images: [
-        {
-          url: meta.ogImage || "/logo/clashware-small.png",
-          width: 1200,
-          height: 630,
-          alt: "Clashware - Swiss Precision. Bold Innovation.",
-        },
-      ],
-    },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
@@ -89,14 +74,6 @@ export async function generateMetadata({
       site: meta.twitterHandle,
       creator: meta.twitterHandle,
       images: [meta.ogImage || "/logo/clashware-small.png"],
-    },
-    alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: {
-        en: `${baseUrl}/en`,
-        fr: `${baseUrl}/fr`,
-        "x-default": `${baseUrl}/en`,
-      },
     },
     icons: {
       icon: [
@@ -136,13 +113,14 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const meta = messages.metadata as MetadataMessages;
 
-  const jsonLd = {
+  const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
     name: "Clashware",
     legalName: "Clashware Sàrl",
-    url: meta.siteUrl || "https://clashware.com",
-    logo: `${meta.siteUrl || "https://clashware.com"}/logo/clashware-logo.png`,
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo/clashware-logo.png`,
     description: meta.description,
     foundingDate: "2025",
     founders: [
@@ -187,19 +165,28 @@ export default async function LocaleLayout({
     ],
   };
 
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${BASE_URL}/#website`,
+    name: "Clashware",
+    url: BASE_URL,
+    description: meta.description,
+    inLanguage: locale,
+    publisher: { "@id": `${BASE_URL}/#organization` },
+  };
+
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={organizationJsonLd} />
+        <JsonLd data={webSiteJsonLd} />
       </head>
       <body
-        className={`${inter.variable} ${geistMono.variable} bg-[#0A0A0F] text-[#FAFAFA] antialiased font-sans`}
+        className={`${fontClasses} bg-[#0A0A0F] text-[#FAFAFA] antialiased font-sans`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <MotionProvider>{children}</MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

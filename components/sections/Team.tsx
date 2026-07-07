@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
-// eslint-disable-next-line @typescript-eslint/no-deprecated
-import { Github, Linkedin, Twitter, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/brand-icons";
 import { useTranslations } from "next-intl";
 
 const teamData = [
@@ -13,9 +13,9 @@ const teamData = [
     image: "/team/kamyar.png",
     initials: "KT",
     socials: [
-      { icon: Github, href: "https://github.com/KamyarTaher", label: "GitHub" },
-      { icon: Linkedin, href: "https://linkedin.com/in/kamyar-taher-4380b614a", label: "LinkedIn" },
-      { icon: Twitter, href: "https://x.com/makray1", label: "X" },
+      { icon: GithubIcon, href: "https://github.com/KamyarTaher", label: "GitHub" },
+      { icon: LinkedinIcon, href: "https://linkedin.com/in/kamyar-taher-4380b614a", label: "LinkedIn" },
+      { icon: TwitterIcon, href: "https://x.com/makray1", label: "X" },
     ],
   },
   {
@@ -23,8 +23,8 @@ const teamData = [
     image: "/team/bastien.png",
     initials: "BF",
     socials: [
-      { icon: Github, href: "https://github.com/bastienfaivre", label: "GitHub" },
-      { icon: Linkedin, href: "https://linkedin.com/in/bastienfaivre", label: "LinkedIn" },
+      { icon: GithubIcon, href: "https://github.com/bastienfaivre", label: "GitHub" },
+      { icon: LinkedinIcon, href: "https://linkedin.com/in/bastienfaivre", label: "LinkedIn" },
       { icon: Globe, href: "https://bastienfaivre.com", label: "Website" },
     ],
   },
@@ -33,7 +33,7 @@ const teamData = [
     image: "/team/nils.png",
     initials: "ND",
     socials: [
-      { icon: Linkedin, href: "https://linkedin.com/in/nils-delage-934a67239", label: "LinkedIn" },
+      { icon: LinkedinIcon, href: "https://linkedin.com/in/nils-delage-934a67239", label: "LinkedIn" },
     ],
   },
 ];
@@ -86,15 +86,15 @@ export default function Team() {
   return (
     <section id="team" className="py-24 px-4 sm:px-6 lg:px-8 bg-obsidian">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 border-l-2 border-[#DC2626] pl-6"
+          className="mb-16 border-l-2 border-[#D03232] pl-6"
         >
           <span className="font-mono text-xs uppercase tracking-widest text-[#A1A1AA] block mb-2">
-            Team
+            {t("label")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-snow uppercase tracking-tight">
             {t("title")}
@@ -102,9 +102,9 @@ export default function Team() {
           <p className="text-lg text-[#A1A1AA] mt-4 max-w-2xl font-mono text-sm uppercase">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -112,7 +112,7 @@ export default function Team() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {teamData.map((member) => (
-            <motion.div key={member.id} variants={cardVariants}>
+            <m.div key={member.id} variants={cardVariants}>
               <div className="group border border-[#27272A] rounded-none bg-transparent hover:bg-[#18181B] transition-colors duration-300 h-full flex flex-col">
                 <div className="relative h-80 overflow-hidden border-b border-[#27272A]">
                   <TeamPhoto
@@ -148,7 +148,7 @@ export default function Team() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="border border-[#27272A] p-2 rounded-none text-[#A1A1AA] hover:text-[#FAFAFA] hover:border-[#FAFAFA] transition-all duration-300"
-                          aria-label={`${t(`${member.id}.name`)} on ${social.label}`}
+                          aria-label={t("socialAria", { name: t(`${member.id}.name`), network: social.label })}
                         >
                           <Icon className="w-4 h-4" aria-hidden="true" />
                         </a>
@@ -157,9 +157,9 @@ export default function Team() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

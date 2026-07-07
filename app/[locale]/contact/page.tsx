@@ -1,6 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import PageLayout from "@/components/layout/PageLayout";
+import { buildPageMetadata, buildPageJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export async function generateMetadata({
@@ -9,10 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "contact" });
-  return {
-    title: `${t("title")} | Clashware`,
-  };
+  return buildPageMetadata(locale, "contact", "/contact");
 }
 
 export default async function ContactPage({
@@ -22,7 +21,10 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "contact" });
+  const [t, jsonLd] = await Promise.all([
+    getTranslations({ locale, namespace: "contact" }),
+    buildPageJsonLd(locale, "contact", "/contact"),
+  ]);
 
   const contactMethods = [
     {
@@ -57,11 +59,12 @@ export default async function ContactPage({
 
   return (
     <PageLayout>
+      <JsonLd data={jsonLd} />
       <div className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="mb-24 flex flex-col md:flex-row gap-8 justify-between items-start md:items-end">
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
             <span className="text-[#FAFAFA]">{t("title").split(" ").slice(0, -1).join(" ")} </span>
-            <span className="text-[#DC2626]">
+            <span className="text-[#D03232]">
               {t("title").split(" ").slice(-1)}
             </span>
           </h1>
@@ -77,7 +80,7 @@ export default async function ContactPage({
               <div key={method.title} className="p-8 border-b border-r border-[#27272A] bg-transparent">
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <Icon className="w-6 h-6 text-[#DC2626]" />
+                    <Icon className="w-6 h-6 text-[#D03232]" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-sm font-mono uppercase tracking-wider text-zinc mb-2">{method.title}</h3>
@@ -86,7 +89,7 @@ export default async function ContactPage({
                         href={method.href}
                         target={method.href.startsWith("http") ? "_blank" : undefined}
                         rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="font-mono text-[#FAFAFA] hover:text-[#DC2626] transition-colors block mb-2"
+                        className="font-mono text-[#FAFAFA] hover:text-[#D03232] transition-colors block mb-2"
                       >
                         {method.value}
                       </a>
@@ -110,7 +113,7 @@ export default async function ContactPage({
           </p>
           <a 
             href="mailto:contact@clashware.com"
-            className="inline-flex items-center gap-2 border border-[#27272A] px-8 py-4 font-mono uppercase tracking-wider text-[#FAFAFA] hover:border-[#DC2626] hover:text-[#DC2626] transition-colors"
+            className="inline-flex items-center gap-2 border border-[#27272A] px-8 py-4 font-mono uppercase tracking-wider text-[#FAFAFA] hover:border-[#D03232] hover:text-[#D03232] transition-colors"
           >
             <Mail className="w-4 h-4" />
             {t("cta.button")}
@@ -119,7 +122,7 @@ export default async function ContactPage({
 
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-3 border border-[#27272A] bg-transparent px-4 py-2 font-mono text-sm text-[#FAFAFA]">
-            <div className="w-4 h-4 bg-[#DC2626] flex items-center justify-center">
+            <div className="w-4 h-4 bg-[#D03232] flex items-center justify-center">
               <div className="relative w-2 h-2">
                 <div className="absolute top-1/2 left-0 w-full h-[1.5px] bg-white -translate-y-1/2" />
                 <div className="absolute left-1/2 top-0 w-[1.5px] h-full bg-white -translate-x-1/2" />

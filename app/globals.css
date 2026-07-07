@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
 
 :root {
   --background: #0A0A0F;
@@ -8,7 +7,7 @@
   --card-foreground: #FAFAFA;
   --popover: #0A0A0F;
   --popover-foreground: #FAFAFA;
-  --primary: #DC2626;
+  --primary: #D03232;
   --primary-foreground: #FAFAFA;
   --secondary: #27272A;
   --secondary-foreground: #FAFAFA;
@@ -19,7 +18,7 @@
   --destructive: #EF4444;
   --border: #27272A;
   --input: #27272A;
-  --ring: #DC2626;
+  --ring: #D03232;
   --radius: 0rem;
 }
 
@@ -30,7 +29,7 @@
   --color-muted: var(--muted-foreground);
   --color-border: var(--border);
   
-  --color-brand: #DC2626;
+  --color-brand: #D03232;
   --color-destructive: var(--destructive);
 
   /* Product Colors */
@@ -80,8 +79,8 @@
   --ease-in-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Fonts */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, monospace;
 
   /* Animations & Keyframes */
   @keyframes wireframe-shimmer {
@@ -97,8 +96,8 @@
     100% { opacity: 1; transform: translateY(0); }
   }
   @keyframes wave {
-    0% { filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.2)); }
-    100% { filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.4)); }
+    0% { filter: drop-shadow(0 0 10px rgba(208,50,50, 0.2)); }
+    100% { filter: drop-shadow(0 0 20px rgba(208,50,50, 0.4)); }
   }
   @keyframes glow-pulse {
     0%, 100% { opacity: 0.4; }
@@ -162,7 +161,7 @@
   scroll-snap-align: center;
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px #0A0A0F, 0 0 0 4px #DC2626;
+    box-shadow: 0 0 0 2px #0A0A0F, 0 0 0 4px #D03232;
   }
 }
 
@@ -219,7 +218,7 @@
 }
 
 *:focus-visible {
-  outline: 2px solid #DC2626;
+  outline: 2px solid #D03232;
   outline-offset: 2px;
 }
 
@@ -249,4 +248,23 @@
   color: var(--foreground);
   z-index: 50;
   border: 1px solid var(--border);
+}
+
+/* Scroll-hint indicator: mechanical ease-out float (replaces animate-bounce,
+   which uses a bouncy easing that clashes with the brand motion rules). */
+@keyframes scroll-hint {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+.animate-scroll-hint {
+  animation: scroll-hint 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-hint {
+    animation: none;
+  }
 }

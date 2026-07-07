@@ -1,6 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import PageLayout from "@/components/layout/PageLayout";
+import { buildPageMetadata, buildPageJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import { Building2, Target, Globe, Users } from "lucide-react";
 
 export async function generateMetadata({
@@ -9,10 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "about" });
-  return {
-    title: `${t("title")} | Clashware`,
-  };
+  return buildPageMetadata(locale, "about", "/about");
 }
 
 export default async function AboutPage({
@@ -22,22 +21,26 @@ export default async function AboutPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "about" });
+  const [t, jsonLd] = await Promise.all([
+    getTranslations({ locale, namespace: "about" }),
+    buildPageJsonLd(locale, "about", "/about"),
+  ]);
 
   const stats = [
     { label: t("stats.founded"), value: "2025", icon: Building2 },
-    { label: t("stats.products"), value: "3", icon: Target },
+    { label: t("stats.products"), value: "4", icon: Target },
     { label: t("stats.focusAreas"), value: t("stats.focusAreasValue"), icon: Globe },
     { label: t("stats.team"), value: t("stats.teamValue"), icon: Users },
   ];
 
   return (
     <PageLayout>
+      <JsonLd data={jsonLd} />
       <div className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="mb-24 flex flex-col md:flex-row gap-8 justify-between items-start md:items-end">
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
             <span className="text-[#FAFAFA]">{t("title").split(" ").slice(0, -1).join(" ")} </span>
-            <span className="text-[#DC2626]">
+            <span className="text-[#D03232]">
               {t("title").split(" ").slice(-1)}
             </span>
           </h1>
@@ -51,7 +54,7 @@ export default async function AboutPage({
             const Icon = stat.icon;
             return (
               <div key={stat.label} className="p-8 flex flex-col items-center justify-center font-mono">
-                <Icon className="w-6 h-6 mb-4 text-[#DC2626]" />
+                <Icon className="w-6 h-6 mb-4 text-[#D03232]" />
                 <div className="text-3xl font-bold text-[#FAFAFA] mb-2 tabular-nums">{stat.value}</div>
                 <div className="text-xs uppercase tracking-wider text-zinc">{stat.label}</div>
               </div>
@@ -96,13 +99,13 @@ export default async function AboutPage({
                 <div className="text-zinc mb-2 uppercase">{t("companyInfo.address")}</div>
                 <div className="text-[#FAFAFA]">
                   Avenue de Jurigoz 15<br />
-                  1006 Lausanne, Switzerland
+                  1006 Lausanne, {t("companyInfo.countryValue")}
                 </div>
               </div>
               <div>
                 <div className="text-zinc mb-2 uppercase">{t("companyInfo.country")}</div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 bg-[#DC2626] flex items-center justify-center">
+                  <div className="w-5 h-5 bg-[#D03232] flex items-center justify-center">
                     <div className="relative w-3 h-3">
                       <div className="absolute top-1/2 left-0 w-full h-[2px] bg-white -translate-y-1/2" />
                       <div className="absolute left-1/2 top-0 w-[2px] h-full bg-white -translate-x-1/2" />
@@ -115,7 +118,7 @@ export default async function AboutPage({
           </div>
         </div>
 
-        <div className="border-l-2 border-[#DC2626] pl-8 py-2 bg-transparent">
+        <div className="border-l-2 border-[#D03232] pl-8 py-2 bg-transparent">
           <h2 className="text-xl font-bold text-[#FAFAFA] mb-4 font-mono uppercase tracking-wider">{t("purpose.title")}</h2>
           <p className="text-zinc leading-relaxed max-w-3xl">
             {t("purpose.content")}

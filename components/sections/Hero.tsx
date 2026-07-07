@@ -1,27 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Terminal, Cpu, Network, Activity } from "lucide-react";
 import { useTranslations } from "next-intl";
-import ParticleField from "@/components/ui/ParticleField";
+import { useClock } from "@/hooks/use-clock";
+
+// Heavy canvas engine: load client-side only, after the hero markup paints.
+// The canvas is absolutely positioned, so late mounting causes no layout shift.
+const ParticleField = dynamic(() => import("@/components/ui/ParticleField"), {
+  ssr: false,
+});
+
+function scrollToProducts() {
+  document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Hero() {
   const t = useTranslations("hero");
-  const [time, setTime] = useState<string>("");
-
-  useEffect(() => {
-    setTime(new Date().toISOString());
-    const interval = setInterval(() => {
-      setTime(new Date().toISOString());
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToProducts = () => {
-    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const time = useClock();
 
   const customEasing: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -61,22 +59,22 @@ export default function Hero() {
 
       <div className="relative z-20 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <motion.div
+          <m.div
             className="lg:col-span-7 flex flex-col items-start text-left"
             initial="hidden"
             animate="visible"
             variants={leftVariants}
           >
             <div className="inline-flex items-center gap-3 border border-[#27272A] px-3 py-1.5 mb-8 bg-black/20 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-[#DC2626] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#D03232] animate-pulse" />
               <span className="font-mono text-xs uppercase tracking-widest text-zinc-300">
-                EPFL Engineering Alumni
+                {t("epflBadge")}
               </span>
             </div>
 
             <h1 className="text-[2.75rem] sm:text-7xl lg:text-8xl font-bold tracking-tight uppercase mb-6 break-words">
               <span className="text-white">Clash</span>
-              <span className="text-[#DC2626]">ware</span>
+              <span className="text-[#D03232]">ware</span>
             </h1>
 
             <p className="text-2xl sm:text-3xl text-[#A1A1AA] mb-8 max-w-2xl text-balance">
@@ -92,7 +90,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-[#DC2626] hover:bg-[#b91c1c] text-white rounded-none font-mono uppercase px-8 py-6 h-auto transition-colors"
+                className="bg-[#D03232] hover:bg-[#AF2828] text-white rounded-none font-mono uppercase px-8 py-6 h-auto transition-colors"
                 onClick={scrollToProducts}
               >
                 {t("exploreProducts")}
@@ -106,26 +104,26 @@ export default function Hero() {
                 <a href="#about">{t("learnMore")}</a>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="hidden lg:block lg:col-span-5 relative"
             initial="hidden"
             animate="visible"
             variants={rightVariants}
           >
             <div className="relative border border-[#27272A] bg-[#0A0A0F] font-mono text-xs text-zinc-400 p-6 shadow-2xl">
-              <div className="absolute -top-[2px] -left-[2px] w-3 h-3 border-t-2 border-l-2 border-[#DC2626]" />
-              <div className="absolute -top-[2px] -right-[2px] w-3 h-3 border-t-2 border-r-2 border-[#DC2626]" />
-              <div className="absolute -bottom-[2px] -left-[2px] w-3 h-3 border-b-2 border-l-2 border-[#DC2626]" />
-              <div className="absolute -bottom-[2px] -right-[2px] w-3 h-3 border-b-2 border-r-2 border-[#DC2626]" />
+              <div className="absolute -top-[2px] -left-[2px] w-3 h-3 border-t-2 border-l-2 border-[#D03232]" />
+              <div className="absolute -top-[2px] -right-[2px] w-3 h-3 border-t-2 border-r-2 border-[#D03232]" />
+              <div className="absolute -bottom-[2px] -left-[2px] w-3 h-3 border-b-2 border-l-2 border-[#D03232]" />
+              <div className="absolute -bottom-[2px] -right-[2px] w-3 h-3 border-b-2 border-r-2 border-[#D03232]" />
 
               <div className="flex items-center justify-between border-b border-[#27272A] pb-4 mb-4">
                 <div className="flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-[#DC2626]" />
+                  <Terminal className="w-4 h-4 text-[#D03232]" />
                   <span className="text-white font-bold tracking-wider">SYSTEM.STATUS</span>
                 </div>
-                <div className="text-zinc-500">{time || "INITIALIZING..."}</div>
+                <div className="text-zinc-400">{time || "INITIALIZING..."}</div>
               </div>
 
               <div className="space-y-4 mb-6">
@@ -152,31 +150,32 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#27272A] text-[#DC2626] flex items-center">
+              <div className="pt-4 border-t border-[#27272A] text-[#D03232] flex items-center">
                 <span className="mr-2">&gt;</span>
                 <span className="animate-pulse">AWAITING_INPUT_</span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.8, ease: customEasing }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 pointer-events-auto"
       >
-        <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">Scroll</span>
+        <span className="font-mono text-xs uppercase text-zinc-400 tracking-widest">{t("scroll")}</span>
         <button
+          type="button"
           onClick={scrollToProducts}
           className="text-zinc-500 hover:text-white transition-colors"
-          aria-label="Scroll to products"
+          aria-label={t("scrollAria")}
         >
-          <ChevronDown className="w-5 h-5 animate-bounce" />
+          <ChevronDown className="w-5 h-5 animate-scroll-hint" />
         </button>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

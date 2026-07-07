@@ -9,7 +9,9 @@ export default function PageLayout({ children }: PageLayoutProps) {
   return (
     <div className="min-h-screen bg-obsidian flex flex-col overflow-x-clip">
       <Navbar />
-      <main className="flex-1 pt-20">{children}</main>
+      <main id="main-content" tabIndex={-1} className="flex-1 pt-20">
+        {children}
+      </main>
       <Footer />
     </div>
   );

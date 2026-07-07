@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { MapPin, Building2, Rocket, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -9,7 +9,7 @@ export default function About() {
 
   const stats = [
     { icon: Building2, label: t("stats.founded"), value: "2025" },
-    { icon: MapPin, label: "Headquarters", value: "Lausanne" },
+    { icon: MapPin, label: t("headquarters"), value: "Lausanne" },
     { icon: Rocket, label: t("stats.focusAreas"), value: t("stats.focusAreasValue") },
     { icon: Users, label: t("stats.team"), value: t("stats.teamValue") },
   ];
@@ -18,14 +18,14 @@ export default function About() {
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-obsidian">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="border-l-2 border-[#DC2626] pl-6 mb-8">
+            <div className="border-l-2 border-[#D03232] pl-6 mb-8">
               <span className="font-mono text-xs uppercase tracking-widest text-[#A1A1AA]">
                 {t("title")}
               </span>
@@ -33,7 +33,7 @@ export default function About() {
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-snow mb-8 text-balance uppercase">
               {t("title").split(" ").slice(0, -1).join(" ")}{" "}
-              <span className="text-[#DC2626]">
+              <span className="text-[#D03232]">
                 {t("title").split(" ").slice(-1)}
               </span>
             </h2>
@@ -51,22 +51,23 @@ export default function About() {
             <div className="my-8 h-px bg-[#27272A]" />
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#DC2626] rounded-none flex items-center justify-center shrink-0" role="img" aria-label="Swiss flag">
+              <div className="w-12 h-12 bg-[#D03232] rounded-none flex items-center justify-center shrink-0">
+                <span className="sr-only">{t("swissFlag")}</span>
                 <div className="relative w-6 h-6" aria-hidden="true">
                   <div className="absolute top-1/2 left-0 w-full h-1.5 bg-snow -translate-y-1/2" />
                   <div className="absolute left-1/2 top-0 w-1.5 h-full bg-snow -translate-x-1/2" />
                 </div>
               </div>
               <div>
-                <p className="text-snow font-medium uppercase font-mono text-sm">Made in Switzerland</p>
+                <p className="text-snow font-medium uppercase font-mono text-sm">{t("madeIn")}</p>
                 <p className="text-stone font-mono text-xs mt-1">
-                  Engineered in Lausanne, {t("companyInfo.countryValue")}
+                  {t("engineeredIn", { country: t("companyInfo.countryValue") })}
                 </p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -79,9 +80,9 @@ export default function About() {
               </h3>
 
               <div className="grid grid-cols-2 gap-4">
-                {stats.map((stat, index) => {
+                {stats.map((stat) => {
                   return (
-                    <div key={index} className="border border-[#27272A] p-4 flex flex-col gap-2">
+                    <div key={stat.label} className="border border-[#27272A] p-4 flex flex-col gap-2">
                       <p className="font-mono text-xs text-[#A1A1AA] uppercase">{stat.label}</p>
                       <p className="text-snow font-mono tabular-nums text-lg">{stat.value}</p>
                     </div>
@@ -98,7 +99,7 @@ export default function About() {
                 <p className="mt-4">{t("companyInfo.uid")}: CHE-178.795.076</p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

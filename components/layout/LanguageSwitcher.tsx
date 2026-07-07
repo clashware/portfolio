@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/lib/i18n/routing";
 import {
   DropdownMenu,
@@ -10,23 +10,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
-import {
-  locales,
-  localeNames,
-  localeFlags,
-  type Locale,
-} from "@/lib/i18n/config";
-import { useState, useEffect } from "react";
+import { locales, localeNames, type Locale } from "@/lib/i18n/config";
+import { useIsMounted } from "@/hooks/use-is-mounted";
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
+  const t = useTranslations("nav");
   const router = useRouter();
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useIsMounted();
 
   const handleLocaleChange = (newLocale: Locale) => {
     router.replace(pathname, { locale: newLocale });
@@ -41,11 +33,12 @@ export default function LanguageSwitcher() {
         <Button
           variant="ghost"
           className={buttonClasses}
+          aria-label={t("changeLanguage")}
           suppressHydrationWarning
         >
           <Globe className="w-4 h-4" aria-hidden="true" />
           <span className="hidden sm:inline" suppressHydrationWarning>
-            {localeFlags[locale as Locale]}
+            {(locale as Locale).toUpperCase()}
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -59,10 +52,10 @@ export default function LanguageSwitcher() {
               key={loc}
               onClick={() => handleLocaleChange(loc)}
               className={`cursor-pointer rounded-none focus:bg-[#27272A] focus:text-[#FAFAFA] py-3 px-4 transition-colors ${
-                locale === loc ? "text-[#DC2626]" : "text-[#A1A1AA]"
+                locale === loc ? "text-[#D03232]" : "text-[#A1A1AA]"
               }`}
             >
-              <span className="mr-3 text-sm">{localeFlags[loc]}</span>
+              <span className="mr-3 w-6 shrink-0">{loc.toUpperCase()}</span>
               {localeNames[loc]}
             </DropdownMenuItem>
           ))}

@@ -21,9 +21,9 @@ interface Shockwave {
 }
 
 // Precomputed color components (avoid string concat in hot loop)
-const COLORS_R = [220, 249, 255, 153];
-const COLORS_G = [38, 115, 60, 27];
-const COLORS_B = [38, 22, 0, 27];
+const COLORS_R = [208, 249, 255, 153];
+const COLORS_G = [50, 115, 60, 27];
+const COLORS_B = [50, 22, 0, 27];
 
 const CONNECTION_DISTANCE = 120;
 const CONNECTION_DIST_SQ = CONNECTION_DISTANCE * CONNECTION_DISTANCE;
@@ -45,9 +45,13 @@ function createParticle(width: number, height: number): Particle {
   };
 }
 
-export default function ParticleField() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const stateRef = useRef({
+// The full imperative canvas engine lives at module scope so the React
+// component stays a thin mount/unmount shell.
+function startParticleField(canvas: HTMLCanvasElement): (() => void) | undefined {
+  const ctx = canvas.getContext("2d", { alpha: true });
+  if (!ctx) return undefined;
+
+  const S = {
     particles: [] as Particle[],
     shockwaves: [] as Shockwave[],
     mouse: { x: -1000, y: -1000, active: false, vx: 0, vy: 0, prevX: -1000, prevY: -1000 },
@@ -61,16 +65,7 @@ export default function ParticleField() {
     // Precomputed color strings keyed by [colorIdx, opacity bucket] — avoids
     // building rgba() strings inside the O(n²) connection loop.
     connColors: [] as string[],
-  });
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d", { alpha: true });
-    if (!ctx) return;
-
-    const S = stateRef.current;
+  };
 
     for (let ci = 0; ci < 4; ci++) {
       for (let oi = 0; oi < 16; oi++) {
@@ -81,8 +76,22 @@ export default function ParticleField() {
 
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     S.reducedMotion = motionQuery.matches;
-    const handleMotionChange = (e: MediaQueryListEvent) => { S.reducedMotion = e.matches; };
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      S.reducedMotion = e.matches;
+      // Restart the loop: reduced mode renders one static frame, full mode resumes animating.
+      cancelAnimationFrame(S.animId);
+      S.animId = requestAnimationFrame(animate);
+    };
     motionQuery.addEventListener("change", handleMotionChange);
+
+    // Pause all work while the tab is hidden.
+    const handleVisibility = () => {
+      cancelAnimationFrame(S.animId);
+      if (!document.hidden) {
+        S.animId = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -106,8 +115,16 @@ export default function ParticleField() {
       S.particles = Array.from({ length: count }, () => createParticle(rect.width, rect.height));
     };
 
+    const handleResize = () => {
+      resize();
+      if (S.reducedMotion) {
+        cancelAnimationFrame(S.animId);
+        S.animId = requestAnimationFrame(animate);
+      }
+    };
+
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", handleResize);
 
     let lastPointerTime = 0;
     const updatePointer = (clientX: number, clientY: number, timestamp: number) => {
@@ -164,7 +181,7 @@ export default function ParticleField() {
     canvas.addEventListener("mouseleave", handleMouseLeave);
     canvas.addEventListener("click", handleClick);
     canvas.addEventListener("touchmove", handleTouchMove, { passive: true });
-    canvas.addEventListener("touchend", handleTouchEnd);
+    canvas.addEventListener("touchend", handleTouchEnd, { passive: true });
 
     const animate = () => {
       const w = S.w;
@@ -178,6 +195,10 @@ export default function ParticleField() {
       ctx.globalCompositeOperation = "lighter";
 
       if (S.reducedMotion) {
+        // Static scene: draw once on an opaque background and stop scheduling.
+        ctx.fillStyle = "#0A0A0F";
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = "lighter";
         const particles = S.particles;
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
@@ -187,7 +208,6 @@ export default function ParticleField() {
           ctx.fillStyle = `rgba(${COLORS_R[ci]},${COLORS_G[ci]},${COLORS_B[ci]},${0.5 * p.z})`;
           ctx.fill();
         }
-        S.animId = requestAnimationFrame(animate);
         return;
       }
 
@@ -301,7 +321,7 @@ export default function ParticleField() {
         }
       }
 
-      ctx.strokeStyle = "rgba(220,38,38,0.12)";
+      ctx.strokeStyle = "rgba(208,50,50,0.12)";
       ctx.lineWidth = 0.4;
       ctx.beginPath();
       let hasCross = false;
@@ -351,7 +371,7 @@ export default function ParticleField() {
         const ringOpacity = (1 - progress) * 0.4;
         ctx.beginPath();
         ctx.arc(sw.x, sw.y, sw.radius, 0, TWO_PI);
-        ctx.strokeStyle = `rgba(220,38,38,${ringOpacity.toFixed(3)})`;
+        ctx.strokeStyle = `rgba(208,50,50,${ringOpacity.toFixed(3)})`;
         ctx.lineWidth = 2 * (1 - progress);
         ctx.stroke();
         ctx.beginPath();
@@ -426,7 +446,8 @@ export default function ParticleField() {
 
     return () => {
       cancelAnimationFrame(S.animId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibility);
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
       canvas.removeEventListener("click", handleClick);
@@ -434,6 +455,15 @@ export default function ParticleField() {
       canvas.removeEventListener("touchend", handleTouchEnd);
       motionQuery.removeEventListener("change", handleMotionChange);
     };
+}
+
+export default function ParticleField() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    return startParticleField(canvas);
   }, []);
 
   return (
@@ -441,6 +471,7 @@ export default function ParticleField() {
       ref={canvasRef}
       className="absolute inset-0 pointer-events-auto cursor-crosshair"
       aria-hidden="true"
+      tabIndex={-1}
     />
   );
 }

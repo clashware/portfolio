@@ -1,0 +1,6 @@
+{
+  "respectInlineDisables": true,
+  "rules": {
+    "deslop/unused-dependency": "off"
+  }
+}

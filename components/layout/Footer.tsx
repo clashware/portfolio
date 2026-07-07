@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Twitter, Download } from "lucide-react";
+import { Download } from "lucide-react";
+import { TwitterIcon } from "@/components/ui/brand-icons";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
@@ -10,14 +11,19 @@ const products = [
   { name: "Metacube", href: "https://metacube.games" },
   { name: "Bonega.ai", href: "https://bonega.ai" },
   { name: "Coira.io", href: "https://coira.io" },
+  { name: "WaiverKit", href: "https://waiverkit.io" },
 ];
 
+const currentYear = new Date().getFullYear();
+
 const social = [
-  { name: "Twitter", href: "https://x.com/clashware", icon: Twitter },
+  { name: "Twitter", href: "https://x.com/clashware", icon: TwitterIcon },
 ];
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const tHero = useTranslations("hero");
+  const tAbout = useTranslations("about");
 
   const legal = [
     { name: t("termsOfService"), href: "/terms" },
@@ -48,20 +54,20 @@ export default function Footer() {
 
             <div>
               <div className="inline-flex items-center border border-[#27272A] px-3 py-1.5 mb-6 bg-[#18181B]">
-                <span className="text-[10px] uppercase text-[#FAFAFA] tracking-widest">EPFL Engineering Alumni</span>
+                <span className="text-xs uppercase text-[#FAFAFA] tracking-widest">{tHero("epflBadge")}</span>
               </div>
               
-              <div className="text-[#A1A1AA] text-[10px] space-y-1 uppercase tracking-widest">
+              <div className="text-[#A1A1AA] text-xs space-y-1 uppercase tracking-widest">
                 <p>Clashware Sàrl</p>
                 <p>Avenue de Jurigoz 15</p>
-                <p>1006 Lausanne, Switzerland</p>
-                <p className="mt-2 text-[#DC2626]">CHE-178.795.076</p>
+                <p>1006 Lausanne, {tAbout("companyInfo.countryValue")}</p>
+                <p className="mt-2 text-[#E05656]">CHE-178.795.076</p>
               </div>
             </div>
           </div>
 
           <div className="p-8 lg:p-12">
-            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#DC2626] pl-3">{t("products")}</h3>
+            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#D03232] pl-3">{t("products")}</h3>
             <ul className="space-y-4">
               {products.map((product) => (
                 <li key={product.name}>
@@ -79,7 +85,7 @@ export default function Footer() {
           </div>
 
           <div className="p-8 lg:p-12">
-            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#DC2626] pl-3">{t("navigation")}</h3>
+            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#D03232] pl-3">{t("navigation")}</h3>
             <ul className="space-y-4">
               <li>
                 <Link
@@ -109,7 +115,7 @@ export default function Footer() {
           </div>
 
           <div className="p-8 lg:p-12">
-            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#DC2626] pl-3">{t("legal")}</h3>
+            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#D03232] pl-3">{t("legal")}</h3>
             <ul className="space-y-4 mb-10">
               {legal.map((item) => (
                 <li key={item.href}>
@@ -123,7 +129,7 @@ export default function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#DC2626] pl-3">{t("social")}</h3>
+            <h3 className="text-snow font-bold mb-6 uppercase text-xs tracking-widest border-l-2 border-[#D03232] pl-3">{t("social")}</h3>
             <div className="flex gap-3">
               {social.map((item) => {
                 const Icon = item.icon;
@@ -157,16 +163,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="p-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[#A1A1AA] text-[10px] uppercase tracking-widest">
+        <div className="p-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[#A1A1AA] text-xs uppercase tracking-widest">
           <p>
-            {t("copyright", { year: new Date().getFullYear() })}
+            {t("copyright", { year: currentYear })}
           </p>
 
           <div className="flex items-center gap-4">
             <p>STACK // NEXT.JS . REACT_19 . TW_4</p>
             <div className="hidden md:block w-px h-3 bg-[#27272A]" />
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#DC2626] rounded-none flex items-center justify-center">
+              <div className="w-3 h-3 bg-[#D03232] rounded-none flex items-center justify-center">
                 <div className="relative w-1.5 h-1.5">
                   <div className="absolute top-1/2 left-0 w-full h-[1px] bg-snow -translate-y-1/2" />
                   <div className="absolute left-1/2 top-0 w-[1px] h-full bg-snow -translate-x-1/2" />

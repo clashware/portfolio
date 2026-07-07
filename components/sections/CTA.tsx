@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-b border-[#27272A] bg-obsidian">
       <div className="max-w-5xl mx-auto text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -20,7 +20,7 @@ export default function CTA() {
         >
           <div className="mb-6 flex justify-center">
              <span className="font-mono text-xs text-[#A1A1AA] uppercase tracking-widest border border-[#27272A] px-3 py-1">
-               Engineered in Lausanne
+               {t("badge")}
              </span>
           </div>
 
@@ -35,7 +35,7 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button
               size="lg"
-              className="bg-[#DC2626] hover:bg-[#B91C1C] text-[#FAFAFA] rounded-none font-mono uppercase px-8 py-6 text-base group transition-colors"
+              className="bg-[#D03232] hover:bg-[#AF2828] text-[#FAFAFA] rounded-none font-mono uppercase px-8 py-6 text-base group transition-colors"
               asChild
             >
               <a href="mailto:contact@clashware.com">
@@ -60,7 +60,7 @@ export default function CTA() {
               </a>
             </Button>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

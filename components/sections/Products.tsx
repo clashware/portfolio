@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -68,23 +68,23 @@ export default function Products() {
   return (
     <section id="products" className="py-24 border-t border-[#27272A] px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1400px] mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 border-l-2 border-[#DC2626] pl-4"
+          className="mb-16 border-l-2 border-[#D03232] pl-4"
         >
-          <div className="font-mono text-sm text-[#A1A1AA] mb-2">// MODULE: 01</div>
+          <div className="font-mono text-sm text-[#A1A1AA] mb-2">{"// MODULE: 01"}</div>
           <h2 className="text-4xl font-bold uppercase tracking-tight text-white">
             {t("title")}
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-[#A1A1AA]">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -95,15 +95,16 @@ export default function Products() {
             const Icon = product.icon;
 
             return (
-              <motion.div key={product.id} variants={itemVariants}>
+              <m.div key={product.id} variants={itemVariants}>
                 <a
                   href={product.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"
+                  aria-label={t(`${product.id}.name`)}
                 >
                   <div className="flex flex-col lg:flex-row border border-[#27272A] bg-transparent group-hover:bg-[#18181B] transition-colors duration-300 relative overflow-hidden">
-                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#27272A] group-hover:bg-[#DC2626] transition-colors duration-300 z-10" />
+                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#27272A] group-hover:bg-[#D03232] transition-colors duration-300 z-10" />
 
                     <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center pl-8 lg:pl-10">
                       <div className="font-mono text-xs text-[#A1A1AA] mb-4">
@@ -112,10 +113,10 @@ export default function Products() {
 
                       <div className="flex flex-col mb-4">
                         <div className="flex items-center gap-3">
-                          <Icon className="w-6 h-6 text-white group-hover:text-[#DC2626] transition-colors duration-300" />
-                          <h3 className="text-2xl font-bold uppercase text-white group-hover:text-[#DC2626] transition-colors duration-300 flex items-center gap-2">
+                          <Icon className="w-6 h-6 text-white group-hover:text-[#D03232] transition-colors duration-300" />
+                          <h3 className="text-2xl font-bold uppercase text-white group-hover:text-[#D03232] transition-colors duration-300 flex items-center gap-2">
                             {t(`${product.id}.name`)}
-                            <ArrowUpRight className="w-6 h-6 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-[#DC2626]" />
+                            <ArrowUpRight className="w-6 h-6 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-[#D03232]" />
                           </h3>
                         </div>
                         <div className="text-sm text-[#A1A1AA] mt-1">
@@ -132,7 +133,7 @@ export default function Products() {
                           <Badge
                             key={tagKey}
                             variant="outline"
-                            className="rounded-none border-[#27272A] font-mono text-[10px] uppercase text-[#A1A1AA] bg-transparent hover:bg-transparent"
+                            className="rounded-none border-[#27272A] font-mono text-xs uppercase text-[#A1A1AA] bg-transparent hover:bg-transparent"
                           >
                             {t(`tags.${tagKey}`)}
                           </Badge>
@@ -151,15 +152,16 @@ export default function Products() {
                         src={product.image}
                         alt={t(`${product.id}.name`)}
                         fill
+                        sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 400px, 500px"
                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                       />
                     </div>
                   </div>
                 </a>
-              </motion.div>
+              </m.div>
             );
           })}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

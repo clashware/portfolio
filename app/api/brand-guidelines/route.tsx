@@ -1,8 +1,12 @@
-import { renderToBuffer } from "@react-pdf/renderer";
-import { BrandGuidelinesPDF } from "@/lib/pdf/BrandGuidelinesPDF";
-
 export async function GET() {
   try {
+    // Lazy-load the PDF stack: @react-pdf/renderer is heavy and only needed
+    // when this endpoint is actually hit.
+    const [{ renderToBuffer }, { BrandGuidelinesPDF }] = await Promise.all([
+      import("@react-pdf/renderer"),
+      import("@/lib/pdf/BrandGuidelinesPDF"),
+    ]);
+
     const pdfBuffer = await renderToBuffer(<BrandGuidelinesPDF />);
     const uint8Array = new Uint8Array(pdfBuffer);
 

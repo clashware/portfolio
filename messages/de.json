@@ -2,8 +2,8 @@
   "metadata": {
     "title": "Clashware - Schweizer Präzision. Kühne Innovation.",
     "titleTemplate": "%s | Clashware",
-    "description": "Schweizer Technologieunternehmen, das die Zukunft von Software, KI und Krypto gestaltet. Entdecken Sie Metacube, Bonega.ai und Coira.io.",
-    "keywords": "Clashware, Schweizer Technologie, Software, KI, Krypto, Blockchain, Metacube, Bonega, Coira, Lausanne, Schweiz, Innovation, Technologie",
+    "description": "Schweizer Technologieunternehmen, das die Zukunft von Software, KI und Krypto gestaltet. Entdecken Sie Metacube, Bonega.ai, Coira.io und WaiverKit.",
+    "keywords": "Clashware, Schweizer Technologie, Software, KI, Krypto, Blockchain, Metacube, Bonega, Coira, WaiverKit, Lausanne, Schweiz, Innovation, Technologie",
     "author": "Clashware Sàrl",
     "ogImage": "/logo/clashware-small.png",
     "twitterHandle": "@clashware",
@@ -12,7 +12,7 @@
   "seo": {
     "home": {
       "title": "Clashware - Schweizer Präzision. Kühne Innovation.",
-      "description": "Schweizer Technologieunternehmen, das die Zukunft von Software, KI und Krypto gestaltet mit Metacube, Bonega.ai und Coira.io."
+      "description": "Schweizer Technologieunternehmen, das die Zukunft von Software, KI und Krypto gestaltet mit Metacube, Bonega.ai, Coira.io und WaiverKit."
     },
     "about": {
       "title": "Über uns",
@@ -32,24 +32,31 @@
     },
     "products": {
       "title": "Unsere Produkte",
-      "description": "Entdecken Sie die innovativen Produkte von Clashware: Metacube für Multiplayer-Gaming, Bonega.ai für KI-Videogenerierung und Coira.io für Krypto-Intelligenz."
+      "description": "Entdecken Sie die innovativen Produkte von Clashware: Metacube für Multiplayer-Gaming, Bonega.ai für KI-Videogenerierung, Coira.io für Krypto-Intelligenz und WaiverKit für digitale Haftungsverzichte."
     }
   },
   "nav": {
     "products": "Produkte",
     "about": "Über uns",
     "contact": "Kontakt",
-    "getInTouch": "Kontaktieren Sie uns"
+    "getInTouch": "Kontaktieren Sie uns",
+    "skipToContent": "Zum Inhalt springen",
+    "openMenu": "Menü öffnen",
+    "menuTitle": "Navigationsmenü",
+    "changeLanguage": "Sprache ändern"
   },
   "hero": {
     "tagline": "Schweizer Präzision. Kühne Innovation.",
     "subtitle": "Enterprise-Software, KI-Systeme und digitale Produkte. Entwickelt in Lausanne.",
     "exploreProducts": "Produkte entdecken",
-    "learnMore": "Mehr erfahren"
+    "learnMore": "Mehr erfahren",
+    "epflBadge": "EPFL-Ingenieur-Alumni",
+    "scroll": "Scrollen",
+    "scrollAria": "Zu den Produkten scrollen"
   },
   "products": {
     "title": "Was wir entwickeln",
-    "subtitle": "Drei Produkte, die die Grenzen der Technologie in Software, KI und Blockchain verschieben.",
+    "subtitle": "Vier Produkte, die die Grenzen der Technologie in Software, KI und Blockchain verschieben.",
     "metacube": {
       "name": "Metacube",
       "tagline": "Gaming im grossen Massstab",
@@ -116,7 +123,11 @@
     "purpose": {
       "title": "Unser Zweck",
       "content": "Der Zweck des Unternehmens ist die Entwicklung, Vermarktung, der Betrieb und der Handel mit IT-Produkten. Darüber hinaus zielt das Unternehmen darauf ab, Dienstleistungen anzubieten, insbesondere Beratungs- und Supportdienstleistungen im IT-Bereich. Das Unternehmen kann Niederlassungen und Tochtergesellschaften gründen und sich an anderen Unternehmen sowohl in der Schweiz als auch im Ausland beteiligen und generell jede Tätigkeit ausüben, die direkt oder indirekt mit seinem Zweck zusammenhängt."
-    }
+    },
+    "headquarters": "Hauptsitz",
+    "madeIn": "Hergestellt in der Schweiz",
+    "engineeredIn": "Entwickelt in Lausanne, {country}",
+    "swissFlag": "Schweizer Flagge"
   },
   "contact": {
     "title": "Kontaktieren Sie uns",
@@ -180,13 +191,16 @@
       "role": "Mitgründer & Full-Stack-Entwickler",
       "education": "BSc Maschinenbau, EPFL",
       "bio": "Full-Stack-Entwickler mit starkem Fokus auf Produktentwicklung und Infrastruktur. Aktiv im Blockchain-Ökosystem durch die Blockchain Student Association der EPFL. Treibt die Produktentwicklung und Plattformarchitektur von Clashware voran."
-    }
+    },
+    "label": "Team",
+    "socialAria": "{name} auf {network}"
   },
   "cta": {
     "title": "Bereit, die Zukunft zu gestalten?",
     "subtitle": "Begleiten Sie uns auf unserer Mission, die Grenzen der Technologie zu verschieben. Ob Gamer, Creator oder Investor, es gibt einen Platz für Sie.",
     "button": "Loslegen",
-    "followUs": "Folgen Sie uns"
+    "followUs": "Folgen Sie uns",
+    "badge": "Entwickelt in Lausanne"
   },
   "footer": {
     "description": "Schweizer Technologieunternehmen, das die Zukunft von Software, KI und Krypto gestaltet.",
@@ -268,8 +282,17 @@
     },
     "contactUs": {
       "title": "Kontaktieren Sie uns",
-      "content": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, {link} Sie uns bitte über unsere Website.",
-      "linkText": "kontaktieren"
+      "content": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, <link>kontaktieren Sie uns</link> bitte über unsere Website."
     }
+  },
+  "notFound": {
+    "message": "Seite nicht gefunden.",
+    "goHome": "Zur Startseite",
+    "redirecting": "Weiterleitung zur Startseite..."
+  },
+  "error": {
+    "message": "Systemverbindung fehlgeschlagen.",
+    "tryAgain": "Erneut versuchen",
+    "retrying": "Verbindung wird erneut versucht..."
   }
 }

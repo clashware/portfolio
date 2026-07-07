@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -18,8 +18,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: "#products", label: t("products") },
-    { href: "#about", label: t("about") },
+    { href: "/#products", label: t("products") },
+    { href: "/#about", label: t("about") },
     { href: "/contact", label: t("contact") },
   ];
 
@@ -28,7 +28,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,11 +36,11 @@ export default function Navbar() {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[60] bg-[#DC2626] text-[#FAFAFA] px-4 py-2 font-mono text-xs uppercase tracking-widest outline-none"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[60] bg-[#D03232] text-[#FAFAFA] px-4 py-2 font-mono text-xs uppercase tracking-widest outline-none"
       >
-        Skip to content
+        {t("skipToContent")}
       </a>
-      <motion.header
+      <m.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -69,32 +69,21 @@ export default function Navbar() {
               </Link>
 
               <div className="hidden lg:flex items-center h-full px-6 border-r border-[#27272A] gap-3 shrink-0">
-                <div className="w-2 h-2 rounded-full bg-[#DC2626] animate-pulse"></div>
+                <div className="w-2 h-2 rounded-full bg-[#D03232] animate-pulse"></div>
                 <span className="font-mono text-xs text-[#A1A1AA] uppercase tracking-widest">SYS.ONLINE</span>
               </div>
             </div>
 
             <div className="flex items-center h-full">
               <div className="hidden md:flex items-center h-full">
-                {navLinks.map((link) => {
-                  const isAnchor = link.href.startsWith("#");
-                  const linkContent = (
+                {navLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="h-full block">
                     <span className="relative h-full flex items-center px-6 font-mono text-xs uppercase tracking-widest text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors group border-l border-[#27272A]">
                       {link.label}
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#DC2626] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D03232] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></span>
                     </span>
-                  );
-
-                  return isAnchor ? (
-                    <a key={link.href} href={link.href} className="h-full block">
-                      {linkContent}
-                    </a>
-                  ) : (
-                    <Link key={link.href} href={link.href} className="h-full block">
-                      {linkContent}
-                    </Link>
-                  );
-                })}
+                  </Link>
+                ))}
               </div>
 
               <div className="hidden md:flex items-center h-full border-l border-[#27272A]">
@@ -103,7 +92,7 @@ export default function Navbar() {
 
               <div className="hidden md:flex items-center h-full border-l border-[#27272A]">
                 <Button
-                  className="h-full bg-[#DC2626] hover:bg-[#B91C1C] text-[#FAFAFA] rounded-none font-mono text-xs uppercase tracking-widest px-8 transition-colors"
+                  className="h-full bg-[#D03232] hover:bg-[#AF2828] text-[#FAFAFA] rounded-none font-mono text-xs uppercase tracking-widest px-8 transition-colors"
                   asChild
                 >
                   <a href="mailto:contact@clashware.com">{t("getInTouch")}</a>
@@ -119,14 +108,14 @@ export default function Navbar() {
                     <SheetTrigger asChild>
                       <Button variant="ghost" className="h-full px-4 rounded-none text-[#FAFAFA] hover:bg-[#27272A] hover:text-[#FAFAFA]">
                         <Menu className="w-6 h-6" />
-                        <span className="sr-only">Open menu</span>
+                        <span className="sr-only">{t("openMenu")}</span>
                       </Button>
                     </SheetTrigger>
                     <SheetContent
                       side="right"
                       className="w-full sm:w-80 bg-[#0A0A0F] border-l border-[#27272A] rounded-none p-0 flex flex-col z-[100]"
                     >
-                      <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                      <SheetTitle className="sr-only">{t("menuTitle")}</SheetTitle>
                       <div className="flex flex-col h-full">
                         <div className="flex items-center h-16 sm:h-20 border-b border-[#27272A] pl-0">
                           <Link
@@ -150,37 +139,22 @@ export default function Navbar() {
                         </div>
 
                         <div className="flex flex-col overflow-y-auto">
-                          {navLinks.map((link) => {
-                            const isAnchor = link.href.startsWith("#");
-                            const linkContent = (
+                          {navLinks.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              onClick={() => setIsOpen(false)}
+                            >
                               <span className="block w-full px-6 py-6 font-mono text-xs uppercase tracking-widest text-[#A1A1AA] hover:text-[#FAFAFA] hover:bg-[#27272A]/50 border-b border-[#27272A] transition-colors">
                                 {link.label}
                               </span>
-                            );
-
-                            return isAnchor ? (
-                              <a
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {linkContent}
-                              </a>
-                            ) : (
-                              <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {linkContent}
-                              </Link>
-                            );
-                          })}
+                            </Link>
+                          ))}
                         </div>
 
                         <div className="mt-auto">
                           <Button
-                            className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-[#FAFAFA] rounded-none font-mono text-xs uppercase tracking-widest h-16 sm:h-20"
+                            className="w-full bg-[#D03232] hover:bg-[#AF2828] text-[#FAFAFA] rounded-none font-mono text-xs uppercase tracking-widest h-16 sm:h-20"
                             asChild
                           >
                             <a
@@ -197,14 +171,14 @@ export default function Navbar() {
                 ) : (
                   <Button variant="ghost" className="h-full px-4 rounded-none text-[#FAFAFA]">
                     <Menu className="w-6 h-6" />
-                    <span className="sr-only">Open menu</span>
+                    <span className="sr-only">{t("openMenu")}</span>
                   </Button>
                 )}
               </div>
             </div>
           </nav>
         </div>
-      </motion.header>
+      </m.header>
     </>
   );
 }
