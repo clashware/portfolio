@@ -172,25 +172,13 @@
     }
   },
   "team": {
-    "title": "Meet the Founders",
-    "subtitle": "Three EPFL engineers building together since 2021, united by a passion for pushing the frontier of technology.",
+    "title": "Meet the Founder",
+    "subtitle": "EPFL engineer building since 2021, driven by a passion for pushing the frontier of technology.",
     "kamyar": {
       "name": "Kamyar Taher",
-      "role": "Co-founder & CEO",
+      "role": "Founder & CEO",
       "education": "MSc Robotics, EPFL",
       "bio": "Full-stack engineer and AI systems architect with 5+ years shipping production web applications. Expert in React, Next.js, TypeScript, and high-performance 3D web experiences with Three.js and WebAssembly. Leads Clashware's technical vision, from pixel-perfect interfaces to multi-agent AI pipelines."
-    },
-    "bastien": {
-      "name": "Bastien Faivre",
-      "role": "Co-founder & Systems Engineer",
-      "education": "MSc Computer Science, EPFL",
-      "bio": "Distributed systems specialist focused on security and reliability. Contributed to BFT consensus engines and conducted performance evaluations of Layer 2 systems in collaboration with the Ethereum Foundation. Brings deep blockchain expertise to Clashware's products."
-    },
-    "nils": {
-      "name": "Nils Delage",
-      "role": "Co-founder & Full-Stack Developer",
-      "education": "BSc Mechanical Engineering, EPFL",
-      "bio": "Full-stack developer with a strong focus on product development and infrastructure. Active in the blockchain ecosystem through EPFL's Blockchain Student Association. Drives Clashware's product engineering and platform architecture."
     },
     "label": "Team",
     "socialAria": "{name} on {network}"

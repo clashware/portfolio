@@ -127,17 +127,7 @@ export default async function LocaleLayout({
       {
         "@type": "Person",
         name: "Kamyar Taher",
-        jobTitle: "Co-founder & CEO",
-      },
-      {
-        "@type": "Person",
-        name: "Bastien Faivre",
-        jobTitle: "Co-founder & Systems Engineer",
-      },
-      {
-        "@type": "Person",
-        name: "Nils Delage",
-        jobTitle: "Co-founder & Full-Stack Developer",
+        jobTitle: "Founder & CEO",
       },
     ],
     address: {

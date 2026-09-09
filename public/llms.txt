@@ -1,6 +1,6 @@
 # Clashware
 
-> Clashware Sàrl is a Swiss technology company based in Lausanne, Switzerland (founded 2025, UID CHE-178.795.076). It builds enterprise-grade software, AI systems, and digital products with a focus on software engineering, artificial intelligence, and blockchain. Founded by three EPFL engineers: Kamyar Taher (Co-founder & CEO), Bastien Faivre (Co-founder & Systems Engineer), and Nils Delage (Co-founder & Full-Stack Developer).
+> Clashware Sàrl is a Swiss technology company based in Lausanne, Switzerland (founded 2025, UID CHE-178.795.076). It builds enterprise-grade software, AI systems, and digital products with a focus on software engineering, artificial intelligence, and blockchain. Founded by EPFL engineer Kamyar Taher (Founder & CEO).
 
 Tagline: Swiss Precision. Bold Innovation.
 

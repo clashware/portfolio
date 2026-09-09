@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { m } from "framer-motion";
 import Image from "next/image";
-import { Globe } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/brand-icons";
 import { useTranslations } from "next-intl";
 
@@ -16,24 +15,6 @@ const teamData = [
       { icon: GithubIcon, href: "https://github.com/KamyarTaher", label: "GitHub" },
       { icon: LinkedinIcon, href: "https://linkedin.com/in/kamyar-taher-4380b614a", label: "LinkedIn" },
       { icon: TwitterIcon, href: "https://x.com/makray1", label: "X" },
-    ],
-  },
-  {
-    id: "bastien",
-    image: "/team/bastien.png",
-    initials: "BF",
-    socials: [
-      { icon: GithubIcon, href: "https://github.com/bastienfaivre", label: "GitHub" },
-      { icon: LinkedinIcon, href: "https://linkedin.com/in/bastienfaivre", label: "LinkedIn" },
-      { icon: Globe, href: "https://bastienfaivre.com", label: "Website" },
-    ],
-  },
-  {
-    id: "nils",
-    image: "/team/nils.png",
-    initials: "ND",
-    socials: [
-      { icon: LinkedinIcon, href: "https://linkedin.com/in/nils-delage-934a67239", label: "LinkedIn" },
     ],
   },
 ];
@@ -109,7 +90,7 @@ export default function Team() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 max-w-md mx-auto gap-8"
         >
           {teamData.map((member) => (
             <m.div key={member.id} variants={cardVariants}>
