@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import PageLayout from "@/components/layout/PageLayout";
 import { buildPageMetadata, buildPageJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -33,13 +33,6 @@ export default async function ContactPage({
       value: "contact@clashware.com",
       href: "mailto:contact@clashware.com",
       description: t("email.description"),
-    },
-    {
-      icon: Phone,
-      title: t("phone.title"),
-      value: "+41 79 580 78 99",
-      href: "tel:+41795807899",
-      description: t("phone.description"),
     },
     {
       icon: MapPin,

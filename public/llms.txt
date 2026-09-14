@@ -24,7 +24,6 @@ The site is available in English (default, at /), French (/fr), German (/de), an
 ## Contact
 
 - Email: contact@clashware.com
-- Phone: +41 79 580 78 99
 - Address: Avenue de Jurigoz 15, 1006 Lausanne, Switzerland
 - X: https://x.com/clashware
 - GitHub: https://github.com/clashware
